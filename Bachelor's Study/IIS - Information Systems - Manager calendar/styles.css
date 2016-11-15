@@ -1,0 +1,137 @@
+/**
+ * File:    styles.css
+ * Author:  Josef Kylousek <xkylou00@stud.fit.vutbr.cz>
+ * Subject: IIS - Manager calendar
+ * Created: Autumn 2012
+ */
+
+body {
+  margin: 0px;
+  background-color: #FFF2C3;
+  min-width: 640px;
+}
+
+#header {
+  border-bottom: 5px solid #FF6600;
+  margin-bottom: 30px;
+  height: 70px;
+  background-color: #FED738;
+}
+
+#logo {
+  height: 80px;
+  width: 20%;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+  margin-top: 5px;
+}
+
+#menu {
+  float: right;
+  width: 80%;
+  min-width: 512px;
+  height: 100%;
+  text-align: center;
+  font-size: 120%;
+
+}
+
+#menu .myUl {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  line-height: 150%;
+  width: 100%;
+}
+
+#menu .myUl .myLi {
+  display: inline-block;
+  margin: 0px 1.5%;
+}
+
+#menu .myUl .myLi a {
+  padding: 7px 1.5%;
+}
+
+#menu .myUl .myLi a:link, #menu .myUl .myLi a:visited {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#menu .myUl .myLi a:hover {
+  color: #FF6600;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#menu .myUl .myLi a.actual {
+  color: #FF6600;
+}
+
+fieldset {
+  display: inline-block;
+}
+
+#formWrapper {
+  text-align: center;
+}
+
+#note {
+  padding-top: 10px;
+  border-top: 1px solid;
+}
+
+td.day {
+  vertical-align: top;
+  font-size: 10px;
+}
+
+td.arrow {
+  vertical-align: middle;
+}
+
+td.arrow a{
+  color: black;
+  text-decoration: none;
+}
+
+td.leftArrow {
+  border-left: solid 1px #FFF2C3;
+  border-top: solid 1px #FFF2C3;
+  border-bottom: solid 1px #FFF2C3;
+  background-color: #FFF2C3;
+}
+
+td.rightArrow {
+  border-right: solid 1px #FFF2C3;
+  border-top: solid 1px #FFF2C3;
+  border-bottom: solid 1px #FFF2C3;
+  background-color: #FFF2C3;
+}
+
+td.day:hover, td.selectedDay {
+  background-color: #FFFF70;
+}
+
+tr.header td.day:hover {
+  background-color: #D6D6D6;
+}
+
+#calcNav a {
+  color: black;
+}
+
+.header {
+  text-align: center;
+  background-color: #D6D6D6;
+}
+
+.month {
+  background-color: white;
+}
+
+.notDay {
+  background-color: #FFF2C3;
+}

@@ -1,0 +1,83 @@
+#!/bin/ksh
+######################################
+#    Projekt #1 for IOS - hltrace    #
+######################################
+# Author: Petr Dvoracek              #
+# E-mail: xdvora0n@stud.fit.vutbr.cz #
+######################################
+# Snazil jsem se psat komentare anglicky... Prosim neukamenujte mne za mou anglictinu. 
+
+export LC_ALL=C
+parameter="xxxxxxxxxx" #I guess that this does not exist! :)
+help="hltrace zvyrazni syntax stopy od strace.
+Pouziti: hltrace [volby] <stopa.strace >stopa.html
+Volby:
+  -s SYSCALL  Specialne zvyrazni volani SYSCALL."
+
+while getopts ":hs:" Option
+do
+	case $Option in 
+		h	) echo "$help"; exit 0 ;;
+		s	) parameter=$OPTARG ;;
+		*	) echo "$help" >&2; exit 1 ;;
+	esac
+done
+shift $(($OPTIND - 1))
+
+echo "<html>
+<style>
+.pid { color:darkred; }
+.ts { color:navy; }
+.number { color:red; }
+.const { color:green; }
+.string { color:blue; }
+.hlcall { text-decoration:none; font-weight:bold; color:black; }
+.call { text-decoration:none; color:olive; }
+</style>
+<body><pre>"
+
+# Re-write &, <, >
+sed -e 's|&|\&amp;|g' | \
+sed -e 's|<|\&lt;|g' | \
+sed -e 's|>|\&gt;|g' | \
+
+#strings
+sed -e 's|"[^"]*"|<span class="string">&</span>|g' | \
+
+#const
+sed -e 's|\([^[:alnum:]]\)\([[:upper:]][_[:upper:][:digit:]]\{1,\}\)|\1<span class="const">\2</span>|g' | \
+
+#numbers hexadecmial - params
+sed -e 's|\([(,] *\)\(0x[[:digit:]a-fA-F]\{1,\}\)|\1<span class="number">\2</span>|g' | \
+
+#numbers decimal - params
+sed -e 's|\([(,] *\)\(-\{0,1\}[[:digit:]]\{1,\}\)|\1<span class="number">\2</span>|g' | \
+
+#numbers hexadecimal - return values
+sed -e 's|\() *= *\)\(0x[[:digit:]a-fA-F]\{1,\}\)|\1<span class="number">\2</span>|g' | \
+
+#numbers decimal - return values
+sed -e 's|\() *= *\)\(-\{0,1\}[[:digit:]]\{1,\}\)|\1<span class="number">\2</span>|g' | \
+
+#hlcall
+sed -e 's|\([[:blank:]]\)\('$parameter'\)(|\1<a href="http://www\.kernel\.org/doc/man-pages/online/pages/man2/\2\.2\.html" class="hlcall">\2</a>(|' | \
+
+#hlcall at the beginning of line
+sed -e 's|^\('$parameter'\)(|<a href="http://www\.kernel\.org/doc/man-pages/online/pages/man2/\1\.2\.html" class="hlcall">\1</a>(|' | \
+
+#call
+sed -e 's|\([[:blank:]]\)\([_[:alpha:]][_[:alnum:]]*\)(|\1<a href="http://www\.kernel\.org/doc/man-pages/online/pages/man2/\2\.2\.html" class="call">\2</a>(|' | \
+
+#call at the beginning of line
+sed -e 's|^\([_[:alpha:]][_[:alnum:]]*\)(|<span class="call">\1</span>(|' | \
+
+#ts
+sed -e 's|\([[:blank:]]\)\([0-9]\.[0-9]*\)|\1<span class="ts">\2</span>|' | \
+
+#pid
+sed -e 's|^[0-9][0-9]*|<span class="pid">&</span>|' 
+
+echo "</pre></body></html>"
+
+
+exit 0

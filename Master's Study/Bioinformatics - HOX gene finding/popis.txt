@@ -1,0 +1,30 @@
+Popis reseni
+============
+Petr Dvoracek xdvora0n
+
+Z dovudu nepritomnosti na cvikach, jsem vypracoval i prvni cast ulohy.
+Pro prvni cast mi poslouzily referencni dokumentace. 
+Nejvetsi zaludnosti bylo pouziti knihoven. Jak stahnout a spustit knihovnu. 
+Internetu jsem vyuzil k vyploteni grafu (seqLoga). 
+Nebot hodnoty pravdepodobnosti, ktere vratilo pwm se v danych sloupcich nerovnaly 1.
+Bylo to potreba prevest, proto jsem vyuzil internetu, kde pouzili: seqLogo(t(t(pwm)) * 1/colSums(pwm))
+
+Pro domaci ulohu jsem vyuzil prave tu prvni cast cviceni.
+TATA, CAAT a ATG jsem hledal na chrIII C. Elegans. Doufam, ze nevadi, ze to neni na celem genomu. 
+Vytvoril jsem spolecny irange (spolecny pro TATA,CAAT a ATG)
+Prevedeni IRange -> GRange jsem nemohl provest, nebot to vyzadovalo alokaci pameti o vic jak 8GB.
+Proto jsem musel vytvorit prevod IRange -> data.frame -> GRange. 
+Tento prevod fungoval.
+Nasledovalo ploteni do grafu, kde jsem vyuzil fci prevzatou z internetu: http://www.bioconductor.org/help/course-materials/2009/GenentechNov2009/Module7/IRanges.R
+
+
+Pro posledni cast ulohy jsem musel nejdrive vyhledat homeoticke geny.
+K tomu mi poslouzil clanek z http://www.nematodes.org/teaching/gg3/Tech5_Databases/index.shtml
+kde autor uvadi HOX pro C. Elegans. Tyto geny jsem pak vyhledaval v esemblu a zjistil jsem ze se vsechny nachazeji na chrIII. Dva z nich jsou na + a zbytek na - vlakne. 
+Vytvoril jsem skript ktery prevadi ziskane udaje o genech ('wormbase_locus', 'start_position', 'end_position', 'chromosome_name', 'ensembl_gene_id', 'strand').
+Tzto udaje jsem prendal do struktury GRanges.
+Nasledovalo tisknuti grafu, kde jsem vyuzil referncni dokumentace bioconductoru. 
+
+
+
+

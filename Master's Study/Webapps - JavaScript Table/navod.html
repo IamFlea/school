@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+</head>
+<!-- ==============NECK============= -->
+<body>
+Tento dokument popisuje použití implementovaného řešení.
+Pro úspěšné použití do hlavičky HTML dokumentu vložte kód pro nahrání přiloženého JavaScriptu proj.js <pre>&lt;script type="text/javascript" src="proj.js"&gt;&lt;/script&gt;</pre>
+Dynamickou tabulku <b>table</b> opatřete specifickým atributem <b>id</b>, například <pre>&lt;table id="dynamic"&gt;</pre>
+Tělíčko <b>body</b> obohaťte o atribut <b>onload</b> s hodnotou <b>dynamicTable('id_tabulky');</b>. Například <pre>&lt;body onload="dynamicTable('dynamic');"&gt;</pre>
+Implicitní řazení tabulky je podle znaků lokální abecedy. Pro řazení podle numerických hodnot přidejte atribut <b>class</b> s hodntou <b>numeric</b>. Tuto úpravu proveďte v prním řádku tabulky, kde hodnoty jsou buňěk jsou ve formátu &lt;th&gt;, daného sloupce. Například:
+<pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th class="numerical"&gt;ID&lt;/th&gt;
+        &lt;th&gt;Species&lt;/th&gt;
+        &lt;th class="numerical"&gt;Age&lt;/th&gt;
+        &lt;th class="alphabetical"&gt;Free time activitz&lt;/th&gt;
+        &lt;th class="alphabetical"&gt;Favourite food&lt;/th&gt;
+        &lt;th class="numerical"&gt;Brain cells&lt;/th&gt;
+    &lt;/tr&gt;
+    ...
+</pre>
+Položky v &lt;thead&gt; a &lt;tfoot&gt; jsou při řazení ignorovány.
+<br />
+<br />
+Skript rovněž podporuje vlastní nastavní stylů například podle souboru <b>proj.css</b>.
+Nově přidané buňky obsahují třídu <b>class</b> s hodnotou <b>dynamic_header_col<i>N</i></b>, kde <b><i>N</i></b> značí pořadí sloupce. V css souboru s ním můžete různě manipulovat, např.
+<pre>
+.dynamic_header_col0{
+	background-color: yellow;
+}
+</pre>
+Všechna textová pole mají třídu s hodnotou <b>dynamic_textfield</b>, "ikonky" řazení mají rovněž svou specifickou třídu <b>dynamic_ASCfield</b>, resp. <b>dynamic_DESCfield</b>.
+Příklad CSS souboru tedy může být následující:
+<pre>
+.dynamic_textfield {
+	color: orange;
+}
+
+.dynamic_ASCfield{
+	color: red;
+	font-family: sans-serif;
+}
+
+.dynamic_DESCfield{
+	color: green;
+	font-family: sans-serif;
+}
+</pre>
+
+Příklady použití lze spatřit <a href="demo.html">zde</a>. Projekt byl úspěšně testován na prohlížečích Firefox, Chrome a Internet Explorer v aktuálních verzích. 
+<br /><br />
+S pozdravem <br />
+Petr Dvoracek, xdvora0n
+
+
+</body>
+</html>

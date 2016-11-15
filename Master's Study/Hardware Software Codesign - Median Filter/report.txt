@@ -1,0 +1,88 @@
+Hardware software codesign 
+2013/2014 
+Petr Dvoøáèek 
+xdvora0n
+
+Tabulka gprof
+=============
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 70.01     20.67    20.67 76953279     0.27     0.27  median
+  7.43     22.87     2.19 76953600     0.03     0.03  gen_pixel
+  7.36     25.04     2.17 76953600     0.03     0.03  clip_window
+  4.34     26.32     1.28 76953600     0.02     0.02  shift_window
+  3.22     27.28     0.95 76953600     0.01     0.35  pixel_processing
+  2.71     28.08     0.80 76953600     0.01     0.01  buffer
+  2.34     28.77     0.69 76953600     0.01     0.06  system_input
+* 1.56     29.23     0.46                             main
+  1.00     29.52     0.30 76953279     0.00     0.00  thresholding
+  0.10     29.55     0.03     1002    30.00    30.00  update_base_pos
+  0.05     29.57     0.02      101   148.79   148.79  histogram_clean
+* 0.03     29.58     0.01                             print_results
+  0.02     29.58     0.01      101    49.60    49.60  otsu
+* nerevalentni
+
+TODO make graf
+
+Rozdìlení aplikace mezi HW a SW
+===============================
+MCU    | FPGA
+otsu** | median
+       | gen_pixel*
+       | clip_window
+       | shift_window
+       | pixel_processing (filter)
+       | buffer
+       | system_input
+       | thresholding
+       | update_base_pos*
+       | histogram_clean
+*  ve slozce src_genpix
+** vcetne metody print_results()
+
+Vyuití adresového prostoru sdílené pamìti BRAM
+===============================================
+AD |       Úèel pouití        | FPGA  | MCU
+---+---------------------------+-------+-----
+00 | Poèet pixelù s hodnotou 0 |   W   |  R
+01 | Poèet pixelù s hodnotou 1 |   W   |  R
+02 | Poèet pixelù s hodnotou 2 |   W   |  R
+03 | Poèet pixelù s hodnotou 3 |   W   |  R
+04 | Poèet pixelù s hodnotou 4 |   W   |  R
+05 | Poèet pixelù s hodnotou 5 |   W   |  R
+06 | Poèet pixelù s hodnotou 6 |   W   |  R
+07 | Poèet pixelù s hodnotou 7 |   W   |  R
+08 | Hodnota prahu z otsu      |   R   |  W
+09 | Validita hodnot           |   W   | R/W 
+10 | Aktualni frame            |   W   |  R
+
+
+Vlastnosti FPGA
+===============
+
+Inicializaèní interval | 1
+Vıpoèetní takty        | 4
+
+Flip Flops    | 597 | 1 536 | 38%
+LUTs          | 984 | 1,536 | 64%
+Slices        | 685 |   768 | 89%
+
+
+Vlastnosti SW a HW implementace
+===============================
+     | 1 pixel |  px/s   | zrychlení
+  sw |  183us  |    5464 |     1
+hwsw |  160ns  | 8333333 |  1525
+Latence obvodu byla brána jako poèet vıpoèetních taktù, kde byl zanedbán reijní takt. Jinak by byla hodnota: 200 ns. 
+Získání hodnoty prvního pixelu na vıstupu by pak trvalo 240ns.
+
+Závìr
+=====
+Verifikace obvodu a softwarového øešení probìhly v poøádku. 
+Pro vıpoèet mediánu byla pouita upravená øadicí sí, která byla pøevzata z práce Z. Vašíèka. Viz http://www.fit.vutbr.cz/~vasicek/pubs.php?file=%2Fpub%2F8604%2Fs5_01.pdf&id=8604 .
+Tento vestavìnı systém je vhodnı pro zpracování obrazu o rozlišení 320x240 s cca 107 snímky za sekundu. 
+Tudí pro podmínky projektu dostaèující, avšak pro moderní full-hd kamery tento systém je nevhodnı.
+Zrychlení bych vidìl v efektivnìjším vyuití zdrojù pøi vıpoètu mediánu, zvıšením frekvence hodin, èi pouití pøípravku s lepšími parametry ne je FITkit.
+
+Happy new year.
+

@@ -1,0 +1,193 @@
+#!/bin/ksh
+######################################
+#    Projekt #1 for IOS - ardiff     #
+######################################
+# Author: Petr Dvoracek              #
+# E-mail: xdvora0n@stud.fit.vutbr.cz #
+######################################
+# Snazil jsem se psat komentare anglicky... Prosim neukamenujte mne za mou anglictinu. Taky se omlouvam za Ceckovske pojeti argumentu... true - 1 false - 0. Jinak hodnoty to prijma dobre
+# This function clean the mess... 
+function error_exit 
+{
+	echo "Error: $1" >&2
+	if [ $tmp_dir ]
+	then
+		cd $working_dir
+		rm -rf $tmp_dir
+	fi
+	exit 1
+}
+trap 'echo "UNEXPECTED ERROR"; cd "$working_dir"; rm -rf "$tmp_dir"; exit 2' 1 2 3 13 15  
+filelist=0	# Variables for getopts...
+makediff=0
+applydiff=0
+reverse=0
+r_patch=""	# DEFAULT - changed with param -r
+r_sort="-r"	# DEFAULT - changed with param -r
+help="ardiff vypisuje zmeny archivu, vytvari rozdilovy archiv nebo aplikuje rozdilovy
+archiv na zdrojovy archiv.
+Pouziti: ardiff [volby] archiv1 archiv2
+Volby:
+  -o SOUBOR  Pokud je cilem skriptu vytvorit archiv, bude vytvoren do souboru
+             se jmenem SOUBOR (plati pro -c a -p).
+  -l         Vypis seznamu souboru, ktere se v zadanych archivech lisi.
+  -c         Vytvoreni rozdiloveho archivu.
+  -p         Aplikace rozdiloveho archivu (argument archiv2) na zdrojovy archiv
+             (argument archiv1).
+  -r         Prepnuti do reverzniho rezimu (plati pro -p)."
+if [ $# -ge "3" ]
+then
+	while getopts ":lcpro:" Option
+	do
+		case $Option in 
+			l	) filelist=1 ;;
+			c	) makediff=1 ;;
+			p	) applydiff=1 ;;
+			r	) reverse=1; r_patch="-R"; r_sort="" ;;
+			o	) patch_file=$OPTARG;; 	#Patch file
+			*	) echo "$help" >&2; exit 1;;	# Whatever...  
+		esac
+	done
+	shift $(($OPTIND - 1))
+	src_file=$1	# Source file
+	dst_file=$2	# Destination file
+	#Wrong combination of params...
+	if [ $filelist -eq 1 ] && [ $makediff -eq 0 ] && [ $applydiff -eq 0 ] && [ $reverse -eq 0 ] && [ -z $patch_file ];
+	then
+		true
+	elif [ $filelist -eq 0 ] && [ $makediff -eq 1 ] && [ $applydiff -eq 0 ] && [ $reverse -eq 0 ] && [ $patch_file ];
+	then
+		true
+	elif [ $filelist -eq 0 ] && [ $makediff -eq 0 ] && [ $applydiff -eq 1 ] && [ $patch_file ];
+	then
+		true
+	else
+		error_exit "Wrong combination of params."
+	fi
+else
+	echo "$help" >&2
+	exit 1
+fi
+working_dir=`pwd`	# Working dir
+tmp_dir=`mktemp -d /tmp/ardiff-${USER}-XXXXXXX` || exit 1	# TMP dir
+mkdir $tmp_dir/a $tmp_dir/b
+if [ -e $src_file ] && [ -e $dst_file ];
+then	# :)
+	tar -xf "$src_file" -C $tmp_dir/a 2>/dev/null || unzip -q "$src_file" -d $tmp_dir/a 2>/dev/null || error_exit "Can not extract source file."
+	tar -xf "$dst_file" -C $tmp_dir/b 2>/dev/null || unzip -q "$dst_file" -d $tmp_dir/b 2>/dev/null || error_exit "Can not extract destination file."
+else
+	error_exit "File does not exist!"
+fi
+
+cd $tmp_dir/a			# files: for creating || filelist
+find * > ../files || error_exit "Source archive is empty!"
+cd $tmp_dir/b			# b_files: for applying || reverse
+find * >../b_files || error_exit "Destination archive is empty!"
+cat ../b_files >>../files
+cd $tmp_dir
+
+if [ $filelist -eq 1 ] || [ $makediff -eq 1 ];
+then
+	mkdir c
+	sort -d <./files | uniq -d >./similar_files
+	sort <./files | uniq -u >./file_list
+	sort -dr <./file_list >./uniq_files
+	while read line
+	do	# Compare UNIQ files
+		dirr=`echo "$line" | sed 's|\(.*\)/[^/]\{1,\}$|\1|' | grep /`
+		if [ -e a/$line ]
+		then
+			mv ./b/ ./tmp_emp/
+			mkdir -p "./b/$dirr" && mkdir -p "./c/$dirr"
+			if [ -f "./a/$line" ]
+			then
+				diff -uaN "a/$line" "b/$line" >"./c/${line}.patch" 	# Change should be everytime...		
+			fi
+			rm -rf ./b/
+			mv ./tmp_emp/ ./b/
+		elif [ -f b/$line ]
+		then
+			mv ./a/ ./tmp_emp/
+			mkdir -p "./a/$dirr" && mkdir -p "./c/$dirr"
+			if [ -f "./b/$line" ]
+			then
+				diff -uaN "a/$line" "b/$line" >"./c/${line}.patch" 	# Change should be everytime...
+			fi
+			rm -rf ./a/
+			mv ./tmp_emp/ ./a/
+		fi
+	done <./uniq_files
+	sort -d <./similar_files >./same_files
+	while read line
+	do	# Compare SAME files
+		dirr=`echo "$line" | sed 's|\(.*\)/[^/]\{1,\}$|\1|' | grep /`
+		if [ -f "b/$line" ] && [ -d "a/$line" ];
+		then
+			rm -rf "a/$line"
+		elif [ -f "a/$line" ] && [ -d "b/$line" ];
+		then
+			rm -rf "b/$line"	
+		elif [ -d "a/$line" ] && [ -d "b/$line" ];
+		then
+			continue
+		fi
+
+		diff -uN "a/$line" "b/$line" >./tmp
+		if [ $? -eq 1 ] && [ -s ./tmp ];
+		then
+			echo "$line" >>./file_list
+			mkdir -p "c/${dirr}"
+			mv ./tmp "c/${line}.patch" || error_exit "Something wrong"
+		fi
+	done <./same_files	
+fi #end of filelist || makediff
+
+if [ $applydiff -eq 1 ]
+then	# Apply diff, reverse if needed
+	mv a/ c/
+	sort `echo $r_sort` -d b_files | grep .patch$ >patches || error_exit "There are not any patches in patching dir."
+	while read line
+	do
+		normal=`echo "$line" | sed 's|\(.*\)\.[^.]\{1,\}$|\1|'`		# Normal name
+		dirr=`echo "$line" | sed 's|\(.*\)/[^/]\{1,\}$|\1|' | grep /` 	# Name of directory
+		touch "c/$normal" 2>/dev/null || mkdir -p "c/$dirr" 
+		patch -ufs `echo $r_patch` "c/$normal" <b/$line || error_exit "Some error during patching."
+		rm -f "c/$normal.orig" "c/$normal.rej" >/dev/null 2>/dev/null
+		if [ ! -s "c/$normal" ]
+		then
+			rm -f "c/$normal"
+			find "c/$dirr/*" >/dev/null 2>/dev/null || rmdir "c/$dirr/" >/dev/null 2>/dev/null
+		fi 
+	done <./patches #cat patches #find c/* #debugging
+fi
+
+if [ $patch_file ]
+then	# Make archive
+	cd c/
+	short=`echo $patch_file | sed 's|^\(.*\)\.\([^.]*\)$|\2|'`
+	long=`echo $patch_file | sed 's|^\(.*\)\.\([^.]*\.[^.]*\)$|\2|'`
+	if [ $short = 'tar' ]
+	then
+		tar -cf ${working_dir}/${patch_file} .  >/dev/null || error_exit "Can not make new archive."
+	elif [ $short = 'tgz' ] || [ $long = 'tar.gz' ];
+	then
+		tar -cf ${working_dir}/${patch_file} -z ./ >/dev/null || error_exit "Can not make new archive."
+	elif [ $long = 'tar.bz2' ]
+	then
+		tar -cf ${working_dir}/${patch_file} -j ./ >/dev/null || error_exit "Can not make new archive."
+	elif [ $short = 'zip' ] || [ $short = 'ZIP' ];
+	then
+		zip -r ${working_dir}/${patch_file} * >/dev/null || error_exit "Can not make new archive."
+	else
+		error_exit "Wrong extension. Please use .zip, .tgz, .tar.bz2..."
+	fi
+fi
+
+if [ $filelist -eq 1 ]
+then	# Print differentes
+	sort <./file_list 
+fi
+cd $working_dir
+rm -rf $tmp_dir
+exit 0
+# The end, KPJK

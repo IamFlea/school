@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+        table { border-collapse: collapse; }
+        td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+        dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Manažerský kalendář</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+    <dt>Autoři</dt>
+    <dd>Dvořáček Petr <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+        <a href="mailto:xdvora0n@stud.fit.vutbr.cz">xdvora0n@stud.fit.vutbr.cz</a> -
+        databáze, UI, php (kromě správy uživatelů)
+    </dd>
+    <dd>Kyloušek Josef <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+        <a href="mailto:xkylou00@stud.fit.vutbr.cz">xkylou00@stud.fit.vutbr.cz</a> - 
+        databáze, UI, CSS + JS, správa uživatelů
+    </dd>
+    <dt>URL aplikace</dt>
+    <dd><a href="http://www.stud.fit.vutbr.cz/~xdvora0n/IIS">http://www.stud.fit.vutbr.cz/~xdvora0n/IIS</a></dd>
+    <dt>URL aplikace (záloha)</dt>
+    <dd><a href="http://www.stud.fit.vutbr.cz/~xkylou00/IIS">http://www.stud.fit.vutbr.cz/~xkylou00/IIS</a></dd>
+    <!--<dd>(pokud má aplikace více vstupních stránek, napište obdobně další URL)</dd>-->
+</dl>
+
+<h2>Uživatelé </h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<p>Uvedl jsem jich víc. Doufám, že Vám to nebude vadit.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>kovakova</td><td>Administrátor</td></tr>
+<tr><td>reditel</td><td>kovakova</td><td>Ředitel</td></tr>
+<tr><td>manazer</td><td>kovakova</td><td>Manažer</td></tr>
+<tr><td>manazer1</td><td>kovakova</td><td>Manažer</td></tr>
+<tr><td>manazer2</td><td>kovakova</td><td>Manažer bez sekretářky</td></tr>
+<tr><td>sekretarka</td><td>kovakova</td><td>Sekretářka manažera</td></tr>
+<tr><td>sekretarka1</td><td>kovakova</td><td>Sekretářka ředitele</td></tr>
+<tr><td>sekretarka2</td><td>kovakova</td><td>Sekretářka manažera 1</td></tr>
+<tr><td>sekretarka3</td><td>kovakova</td><td>Sekretářka bez manažera</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>
+Přikládáme zde jeden zjednodušený Use-case diagram, jelikož jsme nová dvojice.
+</p>
+<pre>
+         .---------------------&gt; změna hesla
+Sekretářka
+    o  ------------------------&gt; vlož akci nadřízenému
+   /|\ 
+    |  ------------------------&gt; zobraz kalendář nadřízeného
+   / \
+
+    ^
+    |
+    |  .-----------------------&gt; úprava své akce
+ Manažer
+   _o_  -----------------------&gt; smazání své akce
+    | 
+    |   -----------------------&gt; nepřítomnost ředitele
+   / \
+       '-----------------------&gt; zobrazení nově přidaných akcí (ředitelem či sekretářkou)
+    ^
+    |                                                          (include)
+    |  .-----------------------&gt; vložení akce manažerovi -----------------) Pošli zprávu manažerovi
+ Ředitel
+   _o/  -----------------------&gt; úprava akce manažerov (kterou sám ředitel přidal)
+    |
+    |   -----------------------&gt; smazáni akce manažerovi (kterou sám ředitel přidal)
+   / \
+       '-----------------------&gt; volné časy manažerů 
+     |
+      '------------------------&gt; Zobrazeni kalendáře danného manažera
+
+
+
+  ADMIN
+   \o/ ------------------------&gt; přidej uživatele
+    |
+    |  ------------------------&gt; smaž uživatele
+   / \
+      '------------------------&gt; edituj uživatele
+</pre>
+</p>
+<!--<p>Stručná dokumentace k implementaci, která popisuje, které PHP skripty implementují jednotlivé případy použití uvedené v use-case diagramu z IDS. V případě, že bylo nutno při implementaci učinit změny v návrhu, musí být v dokumentaci zdůvodněny.</p>-->
+<table>
+    <thead><tr><th>Use case</th><th>Implementováno v PHP skriptu</th></tr></thead>
+    <tr><td>S - Změna hesla</td><td>Formulář je k dispozici v souboru index.php Samotný php script naleznete v souboru user.php funkce changePass().</td></tr>
+    <tr><td>S - Vložení akce</td><td>V souboru event.php funkce create() + správně nastavené proměnné objektu</td></tr>
+    <tr><td>S - Zobrazení kalendáře</td><td>Celý soubor calendar.php, resp. funkce drawMonth() jež zobrazí kalendář pro měsíc, zobrazení akcí pro den se děje ve funkci echoEvents() jejíž jediná proměnná $date zajištuje jaký to bude den</td></tr>
+    <tr><td>M - Úprava akce</td><td>event.php funkce update() + nastavené proměnné objektu</td></tr>
+    <tr><td>M - Smazání akce</td><td>event.php funkce delete() + nastavené proměnné objektu</td></tr>
+    <tr><td>M - Nepřítomnost ředitele</td><td>Celý soubor calendar.php, resp. funkce drawMonth() (tiskne se jen pro manažery)</td></tr>
+    <tr><td>M - Zobrazení nově přidaných akcí</td><td>calendar.php, funkce drawNewEvents()</td></tr>
+    <tr><td>Ř - Vložení akce manažerovi</td><td>event.php, funkce create() + nastavené proměnné objektu</td></tr>
+    <tr><td>Ř - Úprava akce manažerovi</td><td>event.php, funkce update() + správně nastavené proměnné objektu</td></tr>
+    <tr><td>Ř - Smazání akce manažerovi</td><td>event.php funkce delete() + správně nastavené proměnné objektu</td></tr>
+    <tr><td>Ř - Volné časy manažerů</td><td>calendar.php funkce coworkingEvent(), společně s funkcí drawMonth() jež vykreslí měsíc</td></tr>
+    <tr><td>Ř - Zobrazení kalendáře danného manažera</td><td>calendar.php funkce drawMonth(), v kombinaci s formulářem v souboru index.php, kde se vybírá danný manažer</td></tr>
+    <tr><td>A - Přidání uživatele</td><td>registration.php</td></tr>
+    <tr><td>A - Editace uživatele</td><td>usersEdit.php</td></tr>
+    <tr><td>A - Smazání uživatele</td><td>usersEdit.php</td></tr>
+</table>
+
+<p>Část projektu je implementovaná objektově. Snažím se využívat již naprogramované funkce.</p>
+
+<p>V projektu jsme se snažili o přívětivé uživatelské rozhranní. Tudíž jsme také implemenotvali i to, aby uživatel resp. manažer si mohl barevně rozlišit danné akce a přiřazovat je do jednotlivých "kategorií". 
+Jsme toho názoru, že to zpřehlední kalendář, je-li v něm větší množství akcí.</p>
+
+<p>Dalším vylepšením je posílání zašifrovaného hesla v md5 přes internet. Md5 na straně klienta probíhá pomocí Javascriptu před odesláním formuláře pro přihlášení. Tím pádem útočník musí dané heslo "louskat" a ne jen napsat do formuláře.</p>
+
+
+
+<h2>Instalace</h2>
+<ul>
+    <li>Nainstalujte apache, php, mysql viz: <a href="http://www.apachefriends.org/en/xampp.html">XAMPP</a></li>
+    <li>Verze php: 5.3.18 Verze mysql: 5.5.28</li>
+    <li>Rozbalte soubor xdvora0n.zip</li>
+    <li>Nejdříve je potřeba konfigurovat soubor: <b>mysqlConnect.php</b></li>
+    <li>Změňte proměnné požadované proměnné <b>$server</b> (databázovy server), <b>$user</b> (uživatelské jméno), <b>$pass</b> (uživatelské heslo), <b>$db</b> (jméno databáze, jež je předem vytvořena)</li>
+    <li>Při otevření www.vaseadresa.cz/<b>mysqlConnect.php</b> by se Vám měla zobrazit prázdná stránka. Vypíše-li se něco, jedná se o chybu.</li>
+    <li>Po úspěšné konfiguraci spusťte skript www.vaseadresa.cz/<b>install.php</b>, který Vám vytvoří tabulky v databázi s příslušnými daty.</li>
+    <li>Další možností pro naplnění databáze daty je import souboru db.sql v prostředí phpMyAdmin.</li>
+        <!--
+        <li>Stručně popište postup instalace na server</li>
+        <li>Softwarové požadavky (verze PHP apod.)</li>
+        <li>Jak rozbalit, konfigurovat, inicializovat databází, ...</li>
+        -->
+</ul>
+
+<h2>Známé problémy</h2>
+<p>Nejsme si vědomi žádné chybějící funkcionality. Nějaké chyby v systému určitě jsou, ale o žádných konkrétních nevíme.</p>
+<!--<p>Zde popište, které body zadání (IDS a IIS) nejsou implementovány a z jakého důvodu. Např. &bdquo;Z časových důvodů nebyla implementována správa uživatelů.&rdquo; Pomůžete tím zrychlit opravování, když neimplementované funkce nebudeme muset dlouze hledat.</p>-->
+
+</body>
+</html>
+

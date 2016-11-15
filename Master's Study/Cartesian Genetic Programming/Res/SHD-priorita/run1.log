@@ -1,0 +1,383 @@
+----SAD----
+adder3x3.txt  Max gates: inf
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(2,5,1)(6,1,3)(6,4,7)(7,8,2)(9,4,3)(3,5,7)(3,10,3)(10,12,5)(8,1,7)(12,0,7)(5,13,6)(2,5,3)(0,12,2)(18,13,1)(15,17,2)(4,13,4)(3,8,2)(20,12,5)(17,19,3)(16,17,5)(19,15,14,17)
+    Fitness:  -8
+    Used nodes: 12
+    Functionality: 100.0%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    0    0    0    0    0    0    0  
+      1 |   0    0    0    0    0    0    0    0  
+      2 |   0    0    0    0    0    0    0    0  
+      3 |   0    0    0    0    0    0    0    0  
+      4 |   0    0    0    0    0    0    0    0  
+      5 |   0    0    0    0    0    0    0    0  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0    0    0    0    0    0    0    0  
+  Average values of 9 similar solutions:
+    Found in gen:  1036635.1111111111 generation
+  Used nodes:    3.6
+  Functionality: 30.0 %
+  Min best fitness:      -8
+  Average fitness:       16.3
+  Average elapsed time:  13.166666666666666 s 
+
+
+adder3x3.txt  Max gates: 11
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(4,1,2)(0,3,1)(1,4,3)(2,5,5)(8,9,1)(6,10,3)(0,3,3)(11,12,3)(12,11,5)(14,7,7)(12,8,1)(0,11,2)(5,2,3)(8,12,5)(17,6,1)(4,20,1)(20,10,2)(11,3,2)(5,16,1)(13,11,6)(15,13,10,18)
+    Fitness:  16
+    Used nodes: 11
+    Functionality: 98.21428571428571%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    0    0    0    0    0    0    0  
+      1 |   0   -2    0    0    0   -2    0    0  
+      2 |   0    0    0    0    0    0    0    0  
+      3 |   0    0    0   -2    0    0    0   -2  
+      4 |   0    0    0    0    0    0    0    0  
+      5 |   0   -2    0    0    0   -2    0    0  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0    0    0   -2    0    0    0   -2  
+  Used nodes:    0.36666666666666664
+  Functionality: 3.2738095238095237 %
+  Min best fitness:      16
+  Average fitness:       50.666666666666664
+  Average elapsed time:  11.466666666666667 s 
+
+
+adder3x3.txt  Max gates: 10
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(5,2,1)(4,6,2)(1,7,5)(1,7,3)(9,2,2)(3,0,7)(11,1,6)(0,8,7)(13,11,0)(11,13,5)(15,8,3)(9,16,4)(13,3,3)(2,5,3)(17,7,6)(9,18,4)(6,13,7)(21,20,5)(17,3,3)(23,1,0)(16,18,9,19)
+    Fitness:  48
+    Used nodes: 10
+    Functionality: 98.21428571428571%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    0    0    0    0    0    0    0  
+      1 |   0    0    0   -2    0    0    0   -2  
+      2 |   0    0    0    0    0    0    0    0  
+      3 |   0    0    0   -2    0    0    0   -2  
+      4 |   0    0    0    0    0    0    0    0  
+      5 |   0    0    0   -2    0    0    0   -2  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0    0    0   -2    0    0    0   -2  
+  Average values of 3 similar solutions:
+    Found in gen:  526183.3333333334 generation
+  Used nodes:    1.0
+  Functionality: 9.821428571428571 %
+  Min best fitness:      48
+  Average fitness:       68.26666666666667
+  Average elapsed time:  10.833333333333334 s 
+
+
+adder3x3.txt  Max gates: 9
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(1,4,1)(0,6,3)(3,7,3)(8,7,5)(7,6,6)(5,2,5)(1,11,3)(4,12,7)(3,0,5)(10,9,3)(1,7,1)(15,12,4)(10,16,7)(7,3,5)(19,9,3)(1,8,7)(0,10,7)(16,2,6)(9,19,2)(1,9,5)(15,8,13,11)
+    Fitness:  80
+    Used nodes: 9
+    Functionality: 94.64285714285714%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   1    0    1    0    1    0    1    0  
+      1 |   0    0    0   -4    0    0    0   -4  
+      2 |   1    0    1    0    1    0    1    0  
+      3 |   0   -4    0    0    0   -4    0    0  
+      4 |   1    0    1    0    1    0    1    0  
+      5 |   0    0    0   -4    0    0    0   -4  
+      6 |   1    0    1    0    1    0    1    0  
+      7 |   0   -4    0    0    0   -4    0    0  
+  Average values of 3 similar solutions:
+    Found in gen:  1542903.3333333333 generation
+  Used nodes:    0.9
+  Functionality: 9.464285714285715 %
+  Min best fitness:      80
+  Average fitness:       97.6
+  Average elapsed time:  10.4 s 
+
+
+adder3x3.txt  Max gates: 8
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(0,3,7)(4,1,1)(5,7,1)(6,7,7)(3,1,3)(3,2,4)(5,2,3)(6,7,2)(3,8,3)(5,0,5)(14,3,6)(4,1,3)(3,0,2)(18,13,7)(14,15,6)(8,15,7)(21,15,2)(16,15,5)(1,1,2)(4,12,3)(19,9,17,12)
+    Fitness:  96
+    Used nodes: 8
+    Functionality: 96.42857142857143%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    0    0    0    0    0    0    0  
+      1 |   0   -2    0   -2    0   -2    0   -2  
+      2 |   0    0    0    0    0    0    0    0  
+      3 |   0   -2    0   -2    0   -2    0   -2  
+      4 |   0    0    0    0    0    0    0    0  
+      5 |   0   -2    0   -2    0   -2    0   -2  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0   -2    0   -2    0   -2    0   -2  
+  Average values of 4 similar solutions:
+    Found in gen:  158925.5 generation
+  Used nodes:    1.0666666666666667
+  Functionality: 12.857142857142858 %
+  Min best fitness:      96
+  Average fitness:       114.66666666666667
+  Average elapsed time:  9.966666666666667 s 
+
+
+adder3x3.txt  Max gates: 7
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(5,2,3)(1,4,5)(3,3,1)(0,7,7)(0,8,1)(9,3,3)(3,7,7)(12,9,6)(0,10,0)(13,11,7)(12,14,1)(15,7,2)(0,2,1)(0,3,0)(3,9,3)(15,9,6)(8,15,3)(22,1,5)(20,11,4)(17,4,7)(15,11,7,6)
+    Fitness:  112
+    Used nodes: 7
+    Functionality: 94.64285714285714%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   2    2    0    0    2    2    0    0  
+      1 |   2    0    0   -2    2    0    0   -2  
+      2 |   0    0    0    0    0    0    0    0  
+      3 |   0   -2    0   -2    0   -2    0   -2  
+      4 |   2    2    0    0    2    2    0    0  
+      5 |   2    0    0   -2    2    0    0   -2  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0   -2    0   -2    0   -2    0   -2  
+  Used nodes:    0.23333333333333334
+  Functionality: 3.1547619047619047 %
+  Min best fitness:      112
+  Average fitness:       143.2
+  Average elapsed time:  9.266666666666667 s 
+
+
+adder3x3.txt  Max gates: 6
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(1,4,5)(5,2,3)(4,7,3)(0,0,6)(6,0,7)(2,1,7)(0,1,1)(3,6,7)(6,0,3)(14,3,7)(0,3,5)(6,16,5)(3,12,2)(13,14,7)(12,15,1)(13,11,1)(4,20,3)(6,14,4)(11,15,6)(13,14,0)(17,15,6,7)
+    Fitness:  144
+    Used nodes: 6
+    Functionality: 91.51785714285714%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   2    2    0    0    2    2    0    0  
+      1 |   2    0    0   -2    2    0    0   -2  
+      2 |   0    0    8    8    0    0    0    0  
+      3 |   0   -2    8    6    0   -2    0   -2  
+      4 |   2    2    0    0    2    2    0    0  
+      5 |   2    0    0   -2    2    0    0   -2  
+      6 |   0    0    0    0    0    0    0    0  
+      7 |   0   -2    0   -2    0   -2    0   -2  
+  Average values of 3 similar solutions:
+    Found in gen:  32048.0 generation
+  Used nodes:    0.6
+  Functionality: 9.136904761904761 %
+  Min best fitness:      144
+  Average fitness:       170.13333333333333
+  Average elapsed time:  8.666666666666666 s 
+
+
+adder3x3.txt  Max gates: 5
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(0,3,5)(0,3,7)(5,1,5)(4,1,5)(0,7,3)(5,10,6)(9,7,3)(6,12,3)(13,5,4)(6,9,5)(15,14,1)(0,7,6)(3,14,1)(0,6,7)(4,9,5)(7,18,0)(14,8,3)(0,22,2)(19,16,7)(1,20,5)(15,12,9,6)
+    Fitness:  176
+    Used nodes: 5
+    Functionality: 90.17857142857143%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   3    2    1    0    3    2    1    0  
+      1 |   2    1    0   -1    2    1    0   -1  
+      2 |   1    0    9    8    1    0    1    0  
+      3 |   0   -1    8    7    0   -1    0   -1  
+      4 |   3    2    1    0    2    1    0   -1  
+      5 |   2    1    0   -1    1    0   -1   -2  
+      6 |   1    0    1    0    0   -1    0   -1  
+      7 |   0   -1    0   -1   -1   -2   -1   -2  
+  Used nodes:    0.16666666666666666
+  Functionality: 3.005952380952381 %
+  Min best fitness:      176
+  Average fitness:       198.8
+  Average elapsed time:  8.1 s 
+
+
+adder3x3.txt  Max gates: 4
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(4,2,1)(0,4,1)(2,5,3)(3,0,7)(1,4,5)(10,7,0)(1,2,7)(4,1,4)(4,8,6)(9,10,3)(14,10,5)(2,10,1)(12,12,7)(16,16,5)(12,15,5)(6,6,2)(12,21,0)(0,4,5)(5,0,4)(1,24,2)(0,15,10,8)
+    Fitness:  208
+    Used nodes: 4
+    Functionality: 81.25%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   2    2    0    0    2    2    0    0  
+      1 |   2    0    0   -2    2    0    0   -2  
+      2 |   0    0    0    0    0    0   -8   -8  
+      3 |   0   -2    0   -2    0   -2   -8  -10  
+      4 |  10   10    8    8    2    2    0    0  
+      5 |  10    8    8    6    2    0    0   -2  
+      6 |   8    8    0    0    0    0    0    0  
+      7 |   8    6    0   -2    0   -2    0   -2  
+  Used nodes:    0.13333333333333333
+  Functionality: 2.7083333333333335 %
+  Min best fitness:      208
+  Average fitness:       225.73333333333332
+  Average elapsed time:  7.566666666666666 s 
+
+
+adder3x3.txt  Max gates: 3
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(4,1,3)(5,2,3)(5,5,7)(1,1,4)(1,4,5)(9,5,0)(3,6,2)(6,12,2)(6,0,4)(1,2,3)(10,14,1)(7,12,3)(1,10,7)(0,3,1)(9,5,6)(19,13,7)(3,19,7)(12,12,6)(19,12,2)(5,14,3)(19,3,6,7)
+    Fitness:  256
+    Used nodes: 3
+    Functionality: 79.91071428571428%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    0    0    0    0    0    0    0  
+      1 |   0   -2    0   -2    0   -2    0   -2  
+      2 |   0    0   -4   -4    0    0   -4   -4  
+      3 |   0   -2   -4   -6    0   -2   -4   -6  
+      4 |  -4   -4   -4   -4    4    4    4    4  
+      5 |  -4   -6   -4   -6    4    2    4    2  
+      6 |  -4   -4   -8   -8    4    4    0    0  
+      7 |  -4   -6   -8  -10    4    2    0   -2  
+  Average values of 29 similar solutions:
+    Found in gen:  43368.68965517241 generation
+  Used nodes:    2.9
+  Functionality: 77.89434523809524 %
+  Min best fitness:      256
+  Average fitness:       256.53333333333336
+  Average elapsed time:  7.033333333333333 s 
+
+
+adder3x3.txt  Max gates: 2
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(1,3,6)(5,6,7)(4,1,3)(7,3,6)(2,5,3)(3,8,7)(7,8,2)(7,7,3)(0,2,3)(6,9,5)(9,7,2)(1,5,0)(11,2,1)(10,14,6)(10,2,2)(8,10,2)(0,14,1)(2,18,1)(2,15,6)(16,10,7)(3,10,8,10)
+    Fitness:  288
+    Used nodes: 2
+    Functionality: 76.33928571428572%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0    4    0    4    4    8    4    8  
+      1 |   4   -2    4   -2    8    2    8    2  
+      2 |   0    4   -4    0    4    8    0    4  
+      3 |   4   -2    0   -6    8    2    4   -2  
+      4 |  -4    0   -4    0    0    4    0    4  
+      5 |   0   -6    0   -6    4   -2    4   -2  
+      6 |  -4    0   -8   -4    0    4   -4    0  
+      7 |   0   -6   -4  -10    4   -2    0   -6  
+  Average values of 29 similar solutions:
+    Found in gen:  9594.206896551725 generation
+  Used nodes:    1.9333333333333333
+  Functionality: 77.06845238095237 %
+  Min best fitness:      288
+  Average fitness:       288.53333333333336
+  Average elapsed time:  6.5 s 
+
+
+adder3x3.txt  Max gates: 1
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(2,1,6)(4,1,0)(7,6,5)(1,4,3)(1,5,4)(7,6,6)(6,8,6)(9,10,5)(9,10,2)(1,6,6)(4,2,0)(9,1,3)(6,13,7)(13,7,1)(16,15,3)(14,15,5)(4,4,4)(13,8,5)(1,11,7)(8,23,0)(0,4,9,2)
+    Fitness:  320
+    Used nodes: 1
+    Functionality: 81.25%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0   -1    4    3   -4   -5    0   -1  
+      1 |   0   -1    4    3   -4   -5    0   -1  
+      2 |   0   -1    0   -1   -4   -5   -4   -5  
+      3 |   0   -1    0   -1   -4   -5   -4   -5  
+      4 |   4    3    8    7    0   -1    4    3  
+      5 |   4    3    8    7    0   -1    4    3  
+      6 |   4    3    4    3    0   -1    0   -1  
+      7 |   4    3    4    3    0   -1    0   -1  
+  Average values of 30 similar solutions:
+    Found in gen:  844.3 generation
+  Used nodes:    1.0
+  Functionality: 78.37797619047619 %
+  Min best fitness:      320
+  Average fitness:       320.0
+  Average elapsed time:  5.966666666666667 s 
+
+
+adder3x3.txt  Max gates: 0
+  Graph:     1x20    Lback: 20
+  Function set: id, and, or, xor, not, nand, nor, nxor
+  Mutations: 1   Gnerations:5000000   Population:5
+  Runs cnt:  30
+  Max fit:   256
+Results
+  Best chromosome:  {6,4,1,20,2,1,20}(5,2,3)(0,1,4)(4,0,1)(7,3,1)(6,8,0)(8,5,3)(4,5,7)(4,3,4)(1,0,1)(9,0,4)(10,8,1)(1,13,6)(12,6,7)(11,2,2)(13,12,4)(14,15,4)(13,18,6)(22,17,5)(14,18,6)(21,1,0)(0,4,2,4)
+    Fitness:  352
+    Used nodes: 0
+    Functionality: 79.91071428571428%
+        |   0    1    2    3    4    5    6    7  
+    ----+-----------------------------------------
+      0 |   0   -1    3    2   -4   -5   -1   -2  
+      1 |   1    0    4    3   -3   -4    0   -1  
+      2 |  -2   -3    1    0   -6   -7   -3   -4  
+      3 |  -1   -2    2    1   -5   -6   -2   -3  
+      4 |   4    3    7    6    0   -1    3    2  
+      5 |   5    4    8    7    1    0    4    3  
+      6 |   2    1    5    4   -2   -3    1    0  
+      7 |   3    2    6    5   -1   -2    2    1  
+  Average values of 30 similar solutions:
+    Found in gen:  94.06666666666666 generation
+  Used nodes:    0.0
+  Functionality: 79.18154761904765 %
+  Min best fitness:      352
+  Average fitness:       352.0
+  Average elapsed time:  5.5 s 
+
+

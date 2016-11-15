@@ -1,0 +1,64 @@
+Projekt 2: Klient/server
+Vytvořte program pro klienta a server, s využitím rozhraní schránek (sockets API), který implementuje požadovanou službu dle výběru varianty projektu. 
+
+ • navrhněte aplikační protokol pro komunikaci mezi klientem a serverem
+ • vytvořte oba programy v jazyce C/C++ přeložitelné na studentském unixovém serveru eva.fit.vutbr.cz (FreeBSD) včetně funkčního Makefile souboru (oba programy přeložitelné po zadání příkazu make)
+ • vytvořte dokumentaci popisující aplikační protokol (max. 1 strana A4, formát pdf)
+
+Programy využívají spojovanou službu (protokol TCP). Server musí být konkurentní, tzn. bude požadována současná obsluha více klientů. Jméno programu pro server po přeložení bude server a pro klienta client. Server předpokládá jeden povinný parametr -p následovaný číslem portu, na kterém bude očekávat spojení od klienta (příklad spuštění serveru: server -p 10000 &). Klient předpokládá dva povinné parametry, jméno serveru a číslo portu ve formátu jmeno_serveru:port a další parametry dle konkrétního zadání. Jméno serveru může být zadáno doménovým jménem nebo IPv4 adresou. Protokol síťové vrstvy použijte IPv4. Oznámení o chybách, které mohou nastat, bude vytištěno na standardní chybový výstup (stderr). Výpis názvu souborů v adresáři bude proveden na standardní výstup (stdout).
+
+Způsob odevzdání
+Vypracovaný projekt (vas_login.tar.gz) odevzdejte elektronicky přes IS. Archiv vytvořte programy tar a gzip. Odevzdaný projekt musí obsahovat
+
+1. popis použitého aplikačního protokolu (formát pdf)
+2. soubory se zdrojovým kódem a komentářem
+3. Makefile
+4. další potřebné soubory pro funkci programu nebo ukázkové soubory pro demonstraci činnosti
+
+Varianta 2: Překlad doménových jmén
+Vytvořte klient/server systém pro překlad doménových jmen na IP adresy. Server bude poskytovat službu překlad DNS jmen dle použitých voleb. Uvažujte IPv4 adresy a IPv6 adresy. Klient se dotazuje s uvedením doménového jména. Server používá lokální resolver pro překlad doménovách jmen pomocí API knihovny BSD sockets. Pro otestování plné funkcionality je nutné dotazovat se na DNS, ke kterému je k dispozici AAAA záznam. Seznam takových domén je k nalezení například na: http://sixy.ch/
+
+Na serveru je možné zkusit také, například:
+
+kazi:~> nslookup -type=AAAA nemesis.websitelive.net
+Server:. . ::1
+Address:. ::1#53
+Non-authoritative answer:
+nemesis.websitelive.net. has AAAA address
+2a00:85c0:1::241:21
+...
+
+Synopsis: client HOST:PORT [-4] [-6] DOMENJMENO
+Kde možné parametry jsou:
+  Parametr   Význam
+  -4         vrací IPv4 adresu
+  -6         vrací IPv6 adresu
+
+Příklad použití:
+Pro dotaz je nutné specifikovat, které informace o doménovém jméně chceme zobrazit:
+
+client localhost:10000 -4 www.fit.vutbr.cz
+147.229.9.23
+
+nebo:
+
+client localhost:10000 -6 www.fit.vutbr.cz
+2001:67c:1220:809::93e5:917
+
+popřípadě, lze zobrazit obě informace (dle pořadí uvedení parametrů):
+
+client localhost:10000 -4 -6 www.fit.vutbr.cz
+147.229.9.23
+2001:67c:1220:809::93e5:917
+
+client localhost:10000 -6 -4 www.fit.vutbr.cz
+2001:67c:1220:809::93e5:917
+147.229.9.23
+
+Odpovědi budou vypisovány na STDOUT. V případě nenalezení požadované odpovědi bude na STDERR vypsána chyba a výstup STDOUT bude prázdný:
+
+client localhost:10000 -6 -4 www.neexistujici.domena.cz
+Err6: Nenalezeno.
+Err4: Nenalezeno.
+
+

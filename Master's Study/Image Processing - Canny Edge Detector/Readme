@@ -1,0 +1,29 @@
+v0: 
+Kompilace: 
+  make 
+Spusteni
+  ./canny input_image.png sigma low_thold high_thold
+
+v1, v2
+Kompilace:
+  make
+Spusteni:
+  ./canny by mel zobrazit napovedu pouziti
+
+v3
+Kompilace:
+  make
+Spusteni:
+  ./canny input_image.png
+
+vyseledk se uklada do out.png
+
+
+
+CGP: 
+Kompilace
+  make 
+Spusteni:
+  ./cgp input_img.png reference_img.png
+Zmena parametru evoluce nutna ve zdrojovem kodu (lazy to code it) 
+Ukazka vysledneho filtru: cgp_vysledek.png

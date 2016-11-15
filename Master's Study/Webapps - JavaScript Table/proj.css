@@ -1,0 +1,22 @@
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.dynamic_textfield {
+	color: orange;
+}
+
+.dynamic_ASCfield{
+	color: red;
+	font-family: sans-serif;
+}
+
+.dynamic_DESCfield{
+	color: green;
+	font-family: sans-serif;
+}
+
+.dynamic_header_col0{
+	background-color: yellow;
+}

@@ -1,0 +1,113 @@
+<html>
+  <head>
+  <title>Dokumentace FFT</title>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-2" />
+  </head>
+  <body>
+
+<h1>DOKUMENTACE FFT</h1>
+<table>
+<tr>
+<td>
+Předmět:
+</td>
+<td>           Pokročile assemblery
+</td>
+</tr>
+<tr>
+<td>
+Projekt:         
+</td>
+<td>  Rychlá Fourierova trasnsformace
+</td>
+</tr>
+<tr>
+<td>
+Autor: </td><td>            Petr Dvořáček &lt;xdvora0n&lt;at&gt;stud.fit.vutbr.cz&gt;</td>
+</tr>
+<tr>
+<td>
+Datum vypracování:
+</td>
+<td> 15.12 - 21.12 2011
+</td>
+</tr>
+</table>
+
+
+<h3>ÚVOD</h3>
+
+<p>Tato dokumentace pojednává o optimalizaci rychlé Fourierovy transformace.</p> 
+
+<h3>Fourierova transformace</h3>
+<p>Jest algoritmus pro efektivní - rychlý výpočet diskrétní Fourierovy transformace  a její inverze. <br>Užití tohoto algoritmu se najde v grafice, ve zvuku nebo také i v oblasti čísel (např. Ludolfovo číslo  <br>se dá počítat právě pomocí FFT). Existuje zde celá řada algoritmů k urychlení diskrétní Fourierovy  <br>transformace. K optimalizaci jsem zvolil referenční -- Cooley-Tukey algorimus.
+</p>
+<p>
+Tento algoritmus funguje na tomto principu
+<ul>
+ <li>Nejdříve se popřehazuje pořadí prvků v poli pomocí reverze bitů indexu. Např mějme pole o délce osm. <br> Pořadí v poli je následující: <br><tt>0, 1, 2, 3, 4, 5, 6, 7 = 000, 001, 010, 011, 100, 101, 110, 111</tt><br>
+   Pomocí reverze bitů prohodí pořadí indexů:<br> 
+   <tt>0, 4, 2, 6, 1, 5, 3, 7 = 000, 100, 010, 110, 001, 101, 011, 111</tt></li>
+<li>Pak proběhne "syntéza frekvence", ta zahrnuje tři smyčky. Stručně řečno: První říká, jak širocí budou  <br>FFT "motýli". Druhá smyčka je rozděluje na to kolik jich bude a ta třetí je pak zpracovává. </li>
+
+</ul>      
+
+<h3>Nepřesnost algoritmu</h3>
+<p>Při rozboru zadání jsem všiml, že při zvětšujcí se mocnině prvků se snižuje i přesnost tohoto algoritmu.  <br>Přesnost byla měřena pomocí Cooley-Tukey algoritmu a vzorce:</p>
+
+fft<sup>-1</sup>( fft(f) ) = f'<br><br>
+<table border="1">
+<tr>
+<td>Power of 2</td><td>Délka</td><td> Odchlyka realné části</td><td>Odchylka imaginarní části</td></tr>
+<tr><td>1</td> <td>2</td> <td>OK</td> <td>OK</td></tr>
+<tr><td>2</td> <td>4</td> <td>OK</td> <td>OK</td></tr>
+<tr><td>3</td> <td>8</td> <td>0,000 007</td> <td>0,000 003</td></tr>
+<tr><td>4</td> <td>16</td> <td>0,000 027</td> <td>0,000 015</td></tr>
+<tr><td>5</td> <td>32</td> <td>0,000 144</td> <td>0,000 118</td></tr>
+<tr><td>6</td> <td>64</td> <td>0,000 406</td> <td>0,000 663</td></tr>
+<tr><td>7</td> <td>128</td> <td>0,001 230</td> <td>0,001 439</td></tr>
+<tr><td>8</td> <td>256</td> <td>0,006 617</td> <td>0,010 417</td></tr>
+<tr><td>9</td> <td>512</td> <td>0,023 717</td> <td>0,020 171</td></tr>
+<tr><td>10</td> <td>1 024</td> <td>1,008 522</td> <td>1,578 889</td></tr>
+<tr><td>11</td> <td>2 048</td> <td>5.727 947</td> <td>7.178 665</td></tr>
+<tr><td>12</td> <td>4 096</td> <td>16.000 406</td> <td>21.928 044</td></tr>
+<tr><td>13</td> <td>8 192</td> <td>485.246 619</td> <td>717.675 690</td></tr>
+<tr><td>14</td> <td>16 386</td> <td>1 686.202 109</td> <td>1 946.122 066</td></tr>
+<tr><td>15</td> <td>32 768</td> <td>30 433.629 662</td> <td>43 153.567 198</td></tr>
+<tr><td>16</td> <td>65 536</td> <td>698 234.240 006</td> <td>573 369.326 135</td></tr>
+<tr><td>17</td> <td>131 072</td> <td>1 412 493.489 833 </td> <td>1 151 001.562 539</td></tr>
+</table>
+<p>Je to způsobeno jednak tím, že při větším počtu prvků v poli se hodnoty rapidně snižují (a nebo zvyšují)  <br>a jednak tím, že přesnost na 32 bitů je prostě přesnost na 32 bitů a né víc...</p>
+
+<h2>Optimalizace</h2>
+
+<h4>Reverze bitů</h4>
+<p>Při reverzi bitů v poli jsem se snažil eliminovat skoky a čtení z paměti. Zároveň jsem zjistil, že  <br>existuje assemblerovská funkce bswap, která je však příliš pomalá a taky se do tohoto algoritmu nehodí,  <br>neboť pracuje pouze na 32 bitech.</p>
+
+<h4>Fourierova transformace</h4>
+<p>Výpočet fourierovy transformace jsem rozdělil na dvě části. První je výpočet pro kladný směr, druhá pro <br> záporný. Vyhnul jsem se tak skokům ve smyčkách.</p>
+
+
+<p>V monografii Optimizing subroutines in assembly language byly uvedeny konstanty pro SSE. Např. pro 1:<br>
+<tt>pcmpeqw xmm0,xmm0<br>pslld xmm0,25<br>psrld xmm0,2<br></tt> U těchto instrukcí se spoléhám na to, že  <br>jejich čísla - operandy budou uložena v oblasti zdrojového kódu, nikoli v oblasti dat. Tudíž by to mělo  <br>býti rychlejší než zápis přes paměti.</p>
+
+<p>Jak jste si mohli všimnout, využívám zde SSE (Streaming SIMD Extensions). Dovedností těchto instrukcí je  <br>to, že mi dovolí zpracovat 4 výpočty najednou. Má to ale drobnou vadu. FFT pracuje s prvky pole, které  <br>nemusí býti po sobě jdoucí. Tudíž využití instrukce <tt>movups xmm0, [mm128]</tt> se nevyplatí. Proto  <br>nahrávám pole pomocí <tt>movss</tt> a <tt>shufps</tt>. Využití SSE instrukcí mělo za následek to, že  <br>jsem musel rozvinout vnější smyčku. Důvodem je, že při dvou "motýlech" v hlavní iteraci mohu počítat  <br>maximálně dva stejné výpočty najednou a při jednom velkém motýlu přes celé pole, jen jeden výpočet.</p>
+
+<h2>Závěr</h2>
+Podařilo se mi optimalizovat rychlou Fourierovu transformaci o 5-15%. S původním Cooley-Tukey algoritmem  <br>jsou si výsledky velmi podobné. Podle mého názoru můžeme urychlit výpočet FFT pomocí vláken. (ale to  <br>je pouze jen domněnka) 
+
+<h2>Zdroje</h2> 
+AGNER, Fog. Copenhagen University College of Engineering. <i>Optimizing subroutines in assembly language: An <br>optimization guide for x86 platforms</i> Dostupné z: http://www.agner.org/optimize/optimizing_assembly.pdf<br>
+<br>
+AGNER, Fog. Copenhagen University College of Engineering. <i>Instruction tables: Lists of instruction <br>latencies, throughputs and microoperation breakdowns for Intel, AMD and VIA CPUs</i> [online]. Dostupné <br>z: http://www.agner.org/optimize/instruction_tables.pdf<br>
+<br>
+ORSÁG, Filip. <i>Pokročilé asemblery: studijní opora.</i><br>
+<br>
+SMITH, Steven. <i>The Fast Fourier Transform: How the FFT works</i> [online]. Dostupné <br>z: http://www.dspguide.com/ch12/2.htm
+<br>  
+<h2>Obrázky</h2>
+Znázornění jak vypadjí "motýli" ve FFT.
+<img src="fft_motyli.png" align="left">
+
+  </body>
+</html>

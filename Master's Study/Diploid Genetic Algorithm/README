@@ -1,0 +1,8 @@
+Spousteci soubory naleznete na strance: 
+http://www.stud.fit.vutbr.cz/~xdvora0n/evo-dga.zip
+
+Spusteni bylo testovano na studentskem serveru merlin a to nasledovne:
+[xdvora0n@merlin ~/]$ unzip evo-dga.zip
+[xdvora0n@merlin ~/]$ java -jar DiploidGA.jar 
+
+Zdrojaky naleznete ve slozce teto

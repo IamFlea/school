@@ -1,0 +1,275 @@
+> source("http://bioconductor.org/biocLite.R")
+> biocLite()
+> biocLite("BSgenome.Celegans.UCSC.ce2")
+> biocLite(c("MotifDb",  "GenomicFeatures", 
++            "TxDb.Scerevisiae.UCSC.sacCer3.sgdGene",
++            "org.Sc.sgd.db", "BSgenome.Scerevisiae.UCSC.sacCer3",
++            "vignettes",
++            "motifStack", "seqLogo", "IRanges", "GRanges"))
+> library(seqLogo)
+> library(BSgenome.Celegans.UCSC.ce2)
+> library(IRanges)
+
+Textovy vystup preskocen 
+
+UKOL 1
+======
+
+> chrom <- Celegans$chrIII
+> countPattern("ATG", chrom)
+[1] 206776
+>
+
+> tata <- matchPattern("---TATA---", chrom, max.mismatch=6)
+> tata
+  Views on a 13783313-letter DNAString subject
+subject: CCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTA...TAGGCTTAGGCTTAGGCTTAGGCTTAGGCTTAGG
+views:
+           start      end width
+    [1]      160      169    10 [ATTTATAACT]
+    [2]      803      812    10 [GAGTATACTC]
+    [3]     1103     1112    10 [GCCTATAATA]
+    [4]     1263     1272    10 [GAATATAATC]
+    [5]     1369     1378    10 [TGTTATACAT]
+    ...      ...      ...   ... ...
+[56948] 13781600 13781609    10 [AGGTATATTT]
+[56949] 13781689 13781698    10 [AGTTATACCA]
+[56950] 13781737 13781746    10 [ATTTATAAAC]
+[56951] 13781979 13781988    10 [TTTTATACAA]
+[56952] 13782785 13782794    10 [TTTTATATCT]
+> 
+
+
+> pwm <- PWM(DNAStringSet(tata), type = "prob", prior.params = c(A=0.25, C=0.25, G=0.25, T=0.25))
+> pwm
+         [,1]        [,2]       [,3]        [,4]        [,5]        [,6]
+A 0.059208606 0.049061862 0.05245272 -0.01549042  0.16842981 -0.01549042
+C 0.009094931 0.009973325 0.01213056 -0.01549042 -0.01549042 -0.01549042
+G 0.012143475 0.010544927 0.01080974 -0.01549042 -0.01549042 -0.01549042
+T 0.041511548 0.052378446 0.04656554  0.16842981 -0.01549042  0.16842981
+         [,7]       [,8]       [,9]      [,10]
+A  0.16842981 0.04716298 0.05311475 0.04088828
+C -0.01549042 0.01120049 0.01021876 0.01192065
+G -0.01549042 0.01295405 0.01063535 0.01066441
+T -0.01549042 0.05064103 0.04798970 0.05848522
+>
+
+> seqLogo(t(t(pwm)) * 1/colSums(pwm)) # Nasel jsem nekde na netu
+[Obrazek s TATA uprosted]
+
+
+UKOL 3
+======
+> tata <- matchPattern("TATA", chrom)
+> caat <- matchPattern("CAAT", chrom)
+> atg  <- matchPattern("ATG", chrom)
+> # Ulozte je jako datovou strukturu IRanges..
+> tata_irange <- as(tata, "IRanges")
+> caat_irange <- as(caat, "IRanges")
+> atg_irange  <- as(atg,  "IRanges")
+> tata
+  Views on a 13783313-letter DNAString subject
+subject: CCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTA...TAGGCTTAGGCTTAGGCTTAGGCTTAGGCTTAGG
+views:
+           start      end width
+    [1]      163      166     4 [TATA]
+    [2]      806      809     4 [TATA]
+    [3]     1106     1109     4 [TATA]
+    [4]     1266     1269     4 [TATA]
+    [5]     1372     1375     4 [TATA]
+    ...      ...      ...   ... ...
+[56948] 13781603 13781606     4 [TATA]
+[56949] 13781692 13781695     4 [TATA]
+[56950] 13781740 13781743     4 [TATA]
+[56951] 13781982 13781985     4 [TATA]
+[56952] 13782788 13782791     4 [TATA]
+> caat
+  Views on a 13783313-letter DNAString subject
+subject: CCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTA...TAGGCTTAGGCTTAGGCTTAGGCTTAGGCTTAGG
+views:
+           start      end width
+    [1]      834      837     4 [CAAT]
+    [2]     1333     1336     4 [CAAT]
+    [3]     1744     1747     4 [CAAT]
+    [4]     1749     1752     4 [CAAT]
+    [5]     2013     2016     4 [CAAT]
+    ...      ...      ...   ... ...
+[86650] 13782450 13782453     4 [CAAT]
+[86651] 13782563 13782566     4 [CAAT]
+[86652] 13782825 13782828     4 [CAAT]
+[86653] 13783018 13783021     4 [CAAT]
+[86654] 13783059 13783062     4 [CAAT]
+> atg
+  Views on a 13783313-letter DNAString subject
+subject: CCTAAGCCTAAGCCTAAGCCTAAGCCTAAGCCTA...TAGGCTTAGGCTTAGGCTTAGGCTTAGGCTTAGG
+views:
+            start      end width
+     [1]      146      148     3 [ATG]
+     [2]      265      267     3 [ATG]
+     [3]      431      433     3 [ATG]
+     [4]      600      602     3 [ATG]
+     [5]      704      706     3 [ATG]
+     ...      ...      ...   ... ...
+[206772] 13782749 13782751     3 [ATG]
+[206773] 13782760 13782762     3 [ATG]
+[206774] 13782869 13782871     3 [ATG]
+[206775] 13782927 13782929     3 [ATG]
+[206776] 13783041 13783043     3 [ATG]
+> tata_irange
+IRanges of length 56952
+           start      end width
+[1]          163      166     4
+[2]          806      809     4
+[3]         1106     1109     4
+[4]         1266     1269     4
+[5]         1372     1375     4
+...          ...      ...   ...
+[56948] 13781603 13781606     4
+[56949] 13781692 13781695     4
+[56950] 13781740 13781743     4
+[56951] 13781982 13781985     4
+[56952] 13782788 13782791     4
+> caat_irange
+IRanges of length 86654
+           start      end width
+[1]          834      837     4
+[2]         1333     1336     4
+[3]         1744     1747     4
+[4]         1749     1752     4
+[5]         2013     2016     4
+...          ...      ...   ...
+[86650] 13782450 13782453     4
+[86651] 13782563 13782566     4
+[86652] 13782825 13782828     4
+[86653] 13783018 13783021     4
+[86654] 13783059 13783062     4
+> atg_irange
+IRanges of length 206776
+            start      end width
+[1]           146      148     3
+[2]           265      267     3
+[3]           431      433     3
+[4]           600      602     3
+[5]           704      706     3
+...           ...      ...   ...
+[206772] 13782749 13782751     3
+[206773] 13782760 13782762     3
+[206774] 13782869 13782871     3
+[206775] 13782927 13782929     3
+[206776] 13783041 13783043     3
+> iranges <- IRanges(c(start(tata_irange),start(caat_irange),start(atg_irange)), c(end(tata_irange),end(caat_irange),end(atg_irange)))
+> iranges
+IRanges of length 350382
+            start      end width
+[1]           163      166     4
+[2]           806      809     4
+[3]          1106     1109     4
+[4]          1266     1269     4
+[5]          1372     1375     4
+...           ...      ...   ...
+[350378] 13782749 13782751     3
+[350379] 13782760 13782762     3
+[350380] 13782869 13782871     3
+[350381] 13782927 13782929     3
+[350382] 13783041 13783043     3
+
+
+
+
+
+> seqnames <- rep("chrIII", length(iranges))
+> ranges <- c(tata_irange, caat_irange, atg_irange)
+> strand <- rep("+", length(iranges))
+> gene_type <- c(rep(1, length(tata_irange)), rep(2, length(caat_irange)), rep(3, length(atg_irange)))
+> id_number <- c(1:length(iranges))
+> dataset <- data.frame(seqnames, ranges, strand, gene_type)
+> colnames(dataset) <- c('chro', 'start','end', 'width', 'strand', 'id')
+> grange <- with(dataset, GRanges(chro, IRanges(start, end), strand, id_number=id))
+> grange
+GRanges object with 350382 ranges and 1 metadata column:
+           seqnames               ranges strand   | id_number
+              <Rle>            <IRanges>  <Rle>   | <numeric>
+       [1]   chrIII         [ 163,  166]      +   |         1
+       [2]   chrIII         [ 806,  809]      +   |         1
+       [3]   chrIII         [1106, 1109]      +   |         1
+       [4]   chrIII         [1266, 1269]      +   |         1
+       [5]   chrIII         [1372, 1375]      +   |         1
+       ...      ...                  ...    ... ...       ...
+  [350378]   chrIII [13782749, 13782751]      +   |         3
+  [350379]   chrIII [13782760, 13782762]      +   |         3
+  [350380]   chrIII [13782869, 13782871]      +   |         3
+  [350381]   chrIII [13782927, 13782929]      +   |         3
+  [350382]   chrIII [13783041, 13783043]      +   |         3
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+> plotRanges(iranges)
+> plotRanges(tata_irange)
+> plotRanges(caat_irange)
+> plotRanges(atg_irange)
+# viz obrazky
+
+
+#4. Seznamte se s baliky rtracklayer, biomaRt OK.
+> biocLite(c("biomaRt", "rtracklayer", "GenomeGraphs"))
+> library(biomaRt)
+> library(rtracklayer)
+> library(GenomeGraphs)
+# loadovani knihoven
+
+> hox_geny = c("ceh-13", "lin-39", "mab-5", "egl-5", "php-3", "nob-1")
+> hox = getBM(attributes=c('wormbase_locus', 'start_position', 'end_position', 'chromosome_name', 'ensembl_gene_id', 'strand'), filters='wormbase_locus', values=hox_geny, mart=ensembl)
+> hox
+  wormbase_locus start_position end_position chromosome_name ensembl_gene_id
+1         ceh-13        7555660      7558208             III  WBGene00000437
+2          egl-5        7814382      7817127             III  WBGene00001174
+3         lin-39        7528668      7536632             III  WBGene00003024
+4          mab-5        7776907      7783454             III  WBGene00003102
+5          nob-1       12077788     12084320             III  WBGene00003779
+6          php-3       12074290     12077556             III  WBGene00004024
+  strand
+1      1
+2      1
+3     -1
+4     -1
+5     -1
+6     -1
+
+
+> gene_type <- c(hox[1][1:nrow(hox),])
+> id_number <- c(1:nrow(hox))
+> dataset <- data.frame(seqnames, ranges, strand, gene_type)
+> colnames(dataset) <- c('chro', 'start','end', 'width', 'strand', 'id')
+> grange <- with(dataset, GRanges(chro, IRanges(start, end), strand, gname=id))
+> grange
+GRanges object with 6 ranges and 1 metadata column:
+      seqnames               ranges strand |    gname
+         <Rle>            <IRanges>  <Rle> | <factor>
+  [1]   chrIII [ 7555660,  7558208]      + |   ceh-13
+  [2]   chrIII [ 7814382,  7817127]      + |    egl-5
+  [3]   chrIII [ 7528668,  7536632]      - |   lin-39
+  [4]   chrIII [ 7776907,  7783454]      - |    mab-5
+  [5]   chrIII [12077788, 12084320]      - |    nob-1
+  [6]   chrIII [12074290, 12077556]      - |    php-3
+  -------
+  seqinfo: 1 sequence from an unspecified genome; no seqlengths
+> 
+> # a nechte je zobrazit podel chromosomu  (GenomeGraphs, genoPlotR nebo quantsmooth).
+> # Zase cast z internetu, tedkom je verohodnejsi zdroj z manualove stranky GenomeGraphs.
+> plotGeneRegion <- function(chr = 3, minB = 9000, maxB = 13000, rot = 0, col = "green", strandin="+") {
++ 		chrRoman <- as.character(as.roman(1:17)[chr])
++ 		grP <- makeGeneRegion(start = minB, end = maxB,
++ 				strand = strandin, chromosome = "III", biomart = ensembl,
++ 				dp = DisplayPars(plotId = TRUE, idRotation = rot,
++ 				idColor = col))
++ 		#print(grP);
++ 		gaxis <- makeGenomeAxis( add53 = TRUE, add35 = TRUE, littleTicks = FALSE)
++ 		gdPlot(list(grP, gaxis), minBase = minB, maxBase = maxB)
++ 	}
+> # Konec
+> for (idx in 1:length(ranges)){
+> 	plotGeneRegion(col = "yellow", rot=90, minB=start(ranges[idx]), maxB=end(ranges[idx]), strandin=strand[idx])
+> 	print("Stiskni enter na pokracovani")
+> 	line <- readline()
+> }
+> # Hura muzu to odevzdat!
+

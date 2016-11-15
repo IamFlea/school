@@ -1,0 +1,70 @@
+%Jmeno: Petr Dvoracek
+%E-mail: xdvora0n@stud.fit.vutbr.cz
+%Projekt c. 4
+%
+%Text dokumentu
+%--------------
+\documentclass[a4paper, 11pt]{article}
+\usepackage[left=2cm,text={17cm, 24cm},top=3cm]{geometry}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{url} 
+\newcommand{\myuv}[1]{\quotedblbase #1\textquotedblleft}
+\hyphenation{re-pre-zen-tu-je ma-te-ma-tic-kou}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{\Huge  \textsc{Vysoké učení technické v~Brně}} \\ 
+\medskip
+{\huge \textsc{Fakulta informačních technologií}} \\ 
+%\end{center}
+\vspace{\stretch{0.382}}
+%\begin{center}
+%\vfill
+{\LARGE Typografie a~publikování -- 4. projekt}\\
+\medskip
+{\Huge Citace}
+%\vfill
+\vspace{\stretch{0.618}}
+\end{center}
+{\Large { \today \hfill Petr Dvořáček}}\\
+\end{titlepage}
+
+
+\section{Typografie}
+
+
+
+Dějiny typografie začínají, když Johannes Gutenberg v roce 1444 vynalezl knihtisk. \citep{Rybicka:Latex} Z jeho dílny nejprev vyšly Sybiliny prorocké knihy. V letech 1452 – 54 pracovala Gutenbergova dílna na vydání Bible, později zvané \myuv{Gutenbergova Bible}. Tato Bible má vysokou hodnotu, jak historickou, tak i uměleckou. Po výtisku této Bible vznikly rozpory mezi Faustem a~Gutenbergem kvůli návratu peněz. Faust je chtěl rychle nazpět, kdežto Gutenberg všechny vydělané peníze ihned investoval do tiskařské dílny. Tento spor došel až k soudu a~Gutenberg přišel o svůj majetek. \citep{Jitka:gutenberg} 
+
+V dnešní době se do značné míry používá počítač a~\LaTeX. \citep{Lamport:Latex} Kolem roku 1983 vytvořil pro své potřeby profesor Donald E.\-Knuth sázecí systém \TeX. Jeho nejsnámější nadstavbou je systém \LaTeX. \citep{Divila:revizni_system}  Vyslovujeme jej \emph{latech} nikoli \emph{lateks}. \citep{Cisza:uvod_do_latexu}  
+
+Obrovská síla LaTeXu se projevuje zejména při psaní matematických vzorců a~při vytváření matematických dokumentů obecně. Psaní vzorců v programech s grafickým rozhraním (Word, OO Writer, atd.) je velmi zdlouhavé kvůli nutnosti používat myš pro výběr z rozsáhlých menu. V LaTeXovém dokumentu jsou naproti tomu formátovací značky přímo součástí textu a~ač se to na první pohled nezdá, je mnohem pohodlnější pamatovat si několik textových značek, než pozice elementů v grafickém menu. \citep{Martinek:Latexove_specialty}
+
+V akademickém roce 2005/2006 byl na FIT VUT v Brně zaveden nový předmet Typografie a~publikování. \citep{Krena:typografie} Tento předmět má seznámit se systémem \LaTeX a typografickými pravidly. 
+
+\emph{\myuv{Typografická pravidla nevznikla z dobrého rozmaru několika málo nadšenců nebo jako způsob, jak nasrat obyčejného člověka souborem zbytečných pravidel, ale na základě praktických zkušeností s četbou.}} \citep{Pecina:typomil}
+
+Jedním z těchto pravidel je bibliografická citace. Nejprve by bylo vhodné vysvětlit si význam pojmu bibliografická citace. Jedná se o souhrn údajů vztahujících se k citované publikaci nebo části této publikace. \citep{Pysny:bibtex} Na konci tohoto dokumentu můžete nalézt ukázku. \citep{Johannes_Bergerhausen:demokratizace}
+
+
+
+
+% monografie - 			1/1
+% cizojazycna mono - 		1/1
+% 3 el. dokumenty - 		3/3
+% Serial publikace - 		1/1
+% clanky v serial publikaci - 	2/2
+% kvalifikacni prace		2/2
+\newpage
+
+\bibliographystyle{csplainnat}
+\renewcommand{\refname}{Literatura}
+\bibliography{literatura}
+
+\end{document}
+
+% L.

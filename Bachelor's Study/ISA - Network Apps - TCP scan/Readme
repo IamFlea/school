@@ -1,0 +1,83 @@
+Projekt: Seznam bezicich sluzeb na zadanych pocitacich
+Autor: Petr Dvoracek <xdvora0n@stud.fit.vutbr.cz>
+Datum: 18th November 2012
+Verze: 0.1
+
+
+Seznam souboru
+--------------
+Makefile   -- prelozeni
+main.cpp   -- zdrojak 
+manual.pdf -- dokumentace
+README     -- tento soubor
+
+Prelozeni
+---------
+$ make 
+
+Parametry a spusteni 
+--------------------
+Program ocekava povinny parametr -p, po nemz nasleduje seznam portu, 
+na ktere se po spusteni pripojuje. Program vyzaduje ke sve cinnosti
+vstupni soubor osahujici seznam adres. Je-li nazev souboru - (pomlcka),
+vyuzije se standardni vstup.
+
+Nepovinnym parametrem je -t, jenz slouzi k zadani maximalni doby v sekundach,
+po kterou bude program cekat po pripojeni k serveru na zasilani banneru.
+POZOR! 
+Nebyl-li parametr -t zadan, program ceka 10 sekund do prijeti banneru.
+
+Rozsireni:
+Dalsim nepovinnym a v zadani nespecifikovanym parametrem je -a. 
+Vola se vyhradne v kombinaci s paramterem -t! Pouzije dannou dobu i pro pripojeni
+na danny pocitac. Nebyl-li tento paramtr zadan ceka se vetsinou 75 sekund, coz muze byt
+za nekterych okolnosti velice zdrzenlive... 
+
+Prikaldy spusteni programu:
+  $ ./tcpsearch -p 1-80,873 jmeno_vstupniho_souboru -t 1
+  $ ./tcpsearch -p 1-80,873 - -t 1 -a
+
+Syntax vstupniho souboru
+------------------------
+    <Domenove jmeno | IPv4 | IPv6> <Vlastni komentar>
+  Napr:
+    2001:67c:1220:8b0::93e5:b013 IPv6
+    147.229.13.162 IPv4
+    merlin.fit.vutbr.cz
+    www.fit.vutbr.cz skolni server
+    ::1 localhost
+
+Syntaxe portu
+-------------
+  Port muze byt zadan jeden
+    <port> = 1-65535
+  Napr:
+    $ ./tcpsearch vstup -p 42
+
+  Nebo interval portu
+    <interval> = <port>-<port>
+  Napr:
+    $ ./tcpsearch vstup -p 1-80
+
+  Nebo vyctem jednotlivych portu nebo intervalu
+    <vycet> = <port | interval>, <vycet>
+    <vycet> = <port | interval>
+  Napr:
+    $ ./tcpsearch vstup -p 4-9,42
+    $ ./tcpsearch vstup -p 22,80,1024-1028,6666-6669
+
+Vystup programu
+---------------
+  Pro kazdy prohledavany zaznam vypise program prohledavanou adresu
+  a pokud bylo zadano, tak i domenove jmeno. Pro kazdy otevreny port
+  vypise aplikace jeho cislo a obdrzena data. Tato informace aplikace
+  vypisuje na stadardni vystup.
+
+  Vsechny chybove vypisy vyuzivaji standardni chybovy vystup. 
+
+Napr:
+  $ ./tcpsearch -t 1 vstup -p 1-80 2>/dev/null
+  2001:67c:1220:8b0::93e5:b013
+  22
+  SSH-2.0-OpenSSH_4.3
+

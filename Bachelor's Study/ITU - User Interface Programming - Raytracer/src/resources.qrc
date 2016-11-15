@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>objects/sphere.png</file>
+        <file>objects/cube.png</file>
+        <file>objects/light.png</file>
+        <file>objects/pyramid.png</file>
+        <file>objects/add.png</file>
+        <file>icons/exitIcon.png</file>
+        <file>icons/newIcon.png</file>
+        <file>icons/openIcon.png</file>
+        <file>icons/saveIcon.png</file>
+        <file>icons/mainIcon.png</file>
+        <file>icons/left_arrow.png</file>
+        <file>icons/right_arrow.png</file>
+        <file>icons/point_off.png</file>
+        <file>icons/point_on.png</file>
+        <file>objects/cornell_box.jpg</file>
+    </qresource>
+</RCC>
