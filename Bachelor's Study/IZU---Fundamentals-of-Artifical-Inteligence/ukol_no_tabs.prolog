@@ -46,7 +46,7 @@ insert_post([H|LIST], POSITION, ITEM, OUTPUT, S, TEMP) :- spoj(TEMP, [H], TMP), 
 
 % Vytvorte funkci pro inkrementaci kazdeho prvku obecneho seznamu o hodnotu hloubky zanoreni prvku
 % increment_general(INPUT,OUTPUT)
-% input [0,0,[0]] -> output [1,1,[2]]
+% input [0,0,[0]] -> output [1,1,[2]] 
 
 increment_general(INPUT, OUTPUT) :- inc(INPUT, OUTPUT, 1).
 inc([],[],_).
