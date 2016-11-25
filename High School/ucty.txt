@@ -1,0 +1,22 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var x, i, prumer, celkem: real;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  write('x=');read(X);
+  repeat
+    celkem:=x+celkem;
+    i:=i+1;
+    write('x=');read(x);
+  until x = 0;
+  prumer:=celkem/i;
+  writeln('pocet = ', i:0:2);
+  writeln('celkem = ', celkem:0:2);
+  writeln('prumer = ', prumer:0:2);
+  sleep(5000);
+end.

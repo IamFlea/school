@@ -1,0 +1,22 @@
+program delitelnost;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  x,y : integer;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  //delitelnost sedmi.
+  //program se bude opakovat tak dlouho, dokud vstupni cislo nebude nula MOD
+  writeln('DELITELNOST');
+  write('x=');  read(x);
+  write('y='); read(y);
+  while x <> 0 do begin
+  if (x mod y) = 0 then writeln (x,' je delitelny ', y)
+    else writeln  (x,' neni delitelny ',y);
+    write('x='); read(x);
+  end;
+end.

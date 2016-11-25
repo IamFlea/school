@@ -1,0 +1,23 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var i,x,n: integer;
+begin
+writeln ('SOUCET CISEL');
+i:=1;
+x:=0;
+write('n='); read(n);
+while n>=i do
+begin
+x:=x+i;
+i:=i+1;
+end;
+write('soucet ',n,' cisel je ', x);
+sleep(4000);
+
+  { TODO -oUser -cConsole Main : Insert code here }
+end.

@@ -1,0 +1,28 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var i, j:integer;
+    prvocisla: array[1..20] of integer;
+begin
+  write('Vypocet prvocisel z rady 20 cisel.');
+
+  for i:=1 to 20 do prvocisla[i]:=1;
+
+  for i:=2 to 20 do begin
+    if prvocisla[i]=1 then begin
+      j:=i;
+      while j < 20 do begin
+        j:=j+i;
+        prvocisla[j] := 0;
+      end;
+    end;
+  end;
+
+  writeln;
+  for i:=1 to 20 do if prvocisla[i]=1 then write(i ,' ');
+  sleep(10000);
+end.

@@ -1,0 +1,26 @@
+program Project2;
+
+{$APPTYPE CONSOLE}
+
+
+uses
+  SysUtils;
+
+var a, b, o:integer;
+begin
+write('a=');
+
+read(a);
+write('b=');
+read(b);
+
+writeln('-----');
+writeln('o=2*(a+b)');
+writeln('o=2*(',a,'+',b,')');
+o:=2*(a+b);
+writeln('o=',o);
+write('=====');
+
+
+sleep(5000);
+end.

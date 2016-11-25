@@ -1,0 +1,65 @@
+program Project3;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+var i, j: integer;
+    prumer: real;
+    a:array[1..10, 1..10] of integer;
+    b:array[1..10] of real;
+    c:array[1..10] of real;
+begin
+  writeln('Prumer random() znamek');
+  randomize;
+  for i:=1 to 10 do
+  begin
+    for j:=1 to 10 do
+    begin
+      a[i,j] := random(5);
+      while a[i,j] = 0 do begin
+        a[i,j] := random(5);
+      end;
+    end;
+  end;
+
+  //prumer radku
+  for i:=1 to 10 do
+  begin
+    prumer := 0;
+    for j:=1 to 10 do
+    begin
+      prumer := prumer + a[i,j];
+    end;
+    prumer :=  prumer/10;
+    b[i]   := prumer;
+  end;
+  //prumer sloupcu
+  for j:=1 to 10 do
+  begin
+    prumer := 0;
+    for i:=1 to 10 do
+    begin
+      prumer := prumer + a[i,j];
+    end;
+    prumer := prumer/10;
+    c[j]   := prumer;
+  end;
+  
+  //vypis
+  for i:=1 to 10 do
+  begin
+    prumer := 0;
+    for j:=1 to 10 do
+    begin
+      write(a[i,j]:4 ,' ');
+    end;
+  write('  |   Prumer: ', b[i]:3:2);
+  writeln;
+  end;
+  for j:=1 to 10 do
+  begin
+    write(c[j]:3:2 ,' ');
+  end;
+  sleep(10040);
+end.

@@ -1,0 +1,44 @@
+program Project1;
+{$APPTYPE CONSOLE}
+uses
+  SysUtils;
+
+var
+  min, pmin, max, pmax, j, i, n, x: integer;
+  a: array[1..6] of integer = (42, 23, 16, 15, 8, 4);
+begin
+  i := 1;
+  j := 1;
+  n := 6; //pocet prvkù v poli
+  n := n+1;
+  while(j<=n) do begin
+    x := 1;
+    min  := a[j];
+    pmin := j;
+    max  := a[j];
+    pmax := j;
+    i    := j;
+    while(i <= n) do begin
+      if(a[i] < min) then begin
+        min  := a[i];
+        pmin := i;
+      end;
+      i := i + 1;
+    end;
+    x       := a[j];
+    a[j]    := a[pmin];
+    a[pmin] := x;
+    j       := j + 1;
+    i       := i;
+
+    j := j + 1;
+  end;
+
+  for i:=1 to 6 do begin
+    write (a[i] ,' ');
+  end;
+  
+    writeln;
+    write (pmin);
+  sleep (10000);
+end.

@@ -1,0 +1,22 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+  var x, pocet, soucet :integer; prumer :real;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  soucet:= 0; pocet:= 0;
+  write('x=');read(x);
+  repeat
+    pocet:=pocet + 1;
+    soucet:=soucet + x;
+    write('x=');read(x);
+  until x<0;
+  prumer:=soucet/pocet;
+  writeln('soucet', soucet);
+  writeln('pocet', pocet);
+  writeln('prumer', prumer:0:2);
+  sleep(5000)
+end.

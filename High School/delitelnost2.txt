@@ -1,0 +1,19 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var x,y,z: integer;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  write('x='); read(x);
+  write('y='); read(y);
+  if x < y then begin
+  z:=x; x:=y; y:=z;
+  end;
+  if (x DIV y) = x/y then writeln(x,' je delitelne ',y)
+  else writeln(x,' neni delitelne ', y);
+  sleep(5000);
+end.

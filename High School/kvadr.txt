@@ -1,0 +1,35 @@
+program kvadr;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+var a,b,c,S,V:integer;
+    u:real;
+
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+
+  writeln('Vypocet kvadru');
+  writeln('==============');
+  write('a: ');read (a);
+  write('b: ');read (b);
+  write('c: ');read (c);
+  writeln('---------------');
+  S:=2*(a+c+b);
+  writeln('S=2*(ab+bc+ac)');
+  writeln('S=2*(',a,'*',b,'+',b,'*',c,'+',a,'*',c,')');
+  writeln('S=',S);
+  writeln('======');
+  V:=a*b*c ;
+  writeln('V=a*b*c');
+  writeln('V=',a,'*',b,'*',c);
+  writeln('V=',V);
+  writeln('======')
+  u:=sqrt(a*a+b*b+c*c);
+  writeln('u=odmocnina.(a*a+b*b+c*c)');
+  writeln('u=odmocnina.(',a,'*',a,'+',b,'*',b,'+',c,'*',c,')');
+  writeln('u=',u:5:2);
+  writeln('======');
+  Sleep(5000);
+end.

@@ -1,0 +1,30 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var n,i,l,s,x,c: integer;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  x:=1;i:=1;l:=0;s:=0;c:=0;
+  write('n=');read(n);
+while i<=n do begin
+  if(x=1) then begin
+    writeln('licha');
+    l:=l+i;
+    x:=0;
+  end else begin
+    writeln('suda');
+    s:=s+i;
+    x:=1;
+  end;
+  c:=c+i;
+  i:=i+1;
+end;
+writeln('soucet liche = ', l);
+writeln('soucet sudych = ', s);
+writeln('soucet celkem = ', c);
+sleep(5000);
+end.

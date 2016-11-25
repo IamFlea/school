@@ -1,0 +1,41 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+//nejvetsi spol delitel
+uses
+  SysUtils;
+
+var
+a: integer;
+b: integer;
+a1: integer;
+b1: integer;
+i: integer;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  writeln('eukliduv algoritmus');
+  write('a=');read(a); a1:=a;
+  write('b=');read(b); b1:=b;
+
+  while a<>b do begin
+    if a>b then begin
+     a:=a-b;
+    end
+    else begin
+     b:=b-a;
+    end;
+  end;
+  writeln('nejvetsi delitel cisel ',a1,' a ',b1,' je ',a);
+
+///////////////////////
+
+  write('a=');read(a);
+  write('b=');read(b);
+  if a>b then i:=b else i:=a;
+  while NOT(((a MOD i)=0) AND ((b MOD i)=0)) do begin
+   i:=i-1;
+  end;
+  write('nejvetsi delitel cisel ',a,' a ',b,' je ', i);
+
+  sleep(5000);
+end.

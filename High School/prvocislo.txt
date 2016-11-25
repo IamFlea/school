@@ -1,0 +1,34 @@
+program Project2;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var x, y: integer;
+var bool: boolean;
+begin
+  write('Urci zda zadane cislo je prvocislo');
+  writeln;
+  write('==================================');
+  writeln;
+  write('x = ');
+  read(x);
+  writeln;
+
+  y := x div 2; //zrychlení algoritmu o polovinu :)
+  bool := FALSE;
+  while(y > 1) do begin
+    if((x mod y) = 0) then begin
+       bool := TRUE;
+    end;
+    y := y - 1;
+  end;
+
+  if(bool = TRUE) then begin
+    write(x,' neni prvocislo');
+  end else begin
+    write(x,' je prvocislo');
+  end;
+  sleep(10000);
+end.

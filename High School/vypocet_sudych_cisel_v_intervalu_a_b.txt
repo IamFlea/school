@@ -1,0 +1,46 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+a,b,x,i,s: integer;
+begin
+writeln('Sectu vsechna suda cisla v intervalu <a,b>');  //pomoci cyklu for
+writeln('==========================================');
+write('a=');read(a);
+write('b=');read(b);
+
+//fixnuti vetsi prromenne
+if a>b then begin
+  x:=b; b:=a; a:=x;
+end;
+
+//zjisti cislo ktere je sude (x=1)
+if (a DIV 2)=(a/2) then begin
+  x:=1;
+end else begin
+  x:=0;
+end;
+
+
+s:=0;
+//soucet
+for i:=a to b do begin
+  if x=1 then begin
+    s:=s+i; write(i, '+');
+    x:=0;
+  end else begin
+    x:=x+1;
+  end;
+end;
+writeln;
+writeln;
+write('Soucet sudych cisel v intervalu <',a,',',b,'> je ', s);
+
+sleep(5000);
+  { TODO -oUser -cConsole Main : Insert code here }
+end.
+

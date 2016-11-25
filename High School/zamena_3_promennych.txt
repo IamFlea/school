@@ -1,0 +1,24 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+uses
+  SysUtils;
+
+var a,b,c,x: integer;
+
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  writeln('usporadani tri cisel');
+  write('a='); read(a);
+  write('b='); read(b);
+  write('c='); read(c);
+if a>b then begin x:=a; a:=b; b:=x; writeln('a<b') end;
+if b>c then begin x:=c; c:=b; b:=x; writeln('b<c') end;
+if a>b then begin x:=a; a:=b; b:=x; writeln('a<c') end;
+writeln(' ');
+writeln(' ');
+writeln('a<b<c');
+writeln(a,'<',b,'<',c);
+
+sleep(5000);
+end.

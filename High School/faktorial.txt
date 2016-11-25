@@ -1,0 +1,23 @@
+program faktorial;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var i,n,x: integer;
+begin
+writeln('FAKTORIAL');
+writeln('*********');
+writeln(' ');
+
+i:=1; x:=1;
+write('n=');read(n);
+while n>=i do begin
+x:=x*i;
+i:=i+1;
+end;
+write ('soucin n cisel je ', x);
+sleep(7000);
+  { TODO -oUser -cConsole Main : Insert code here }
+end.

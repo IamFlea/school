@@ -1,0 +1,26 @@
+program Project2;
+
+{$APPTYPE CONSOLE}
+uses
+  SysUtils;
+
+var a,b,c,d,x: integer;
+
+begin
+writeln('zamena 4 promennych');
+writeln('-------------------');
+write('a='); read(a);
+write('b='); read(b);
+write('c='); read(c);
+write('d='); read(d);
+writeln(' ');
+if a>b then begin x:=b; b:=a; a:=x; end;
+if b>c then begin x:=c; c:=b; b:=x; end;
+if c>d then begin x:=d; d:=c; c:=x; end;
+if b>c then begin x:=c; c:=b; b:=x; end;
+if a>b then begin x:=b; b:=a; a:=x; end;
+writeln('a<b<c<d');
+writeln(a,'<',b,'<',c,'<',d);
+sleep(5000);
+  { TODO -oUser -cConsole Main : Insert code here }
+end.

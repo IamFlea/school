@@ -1,0 +1,24 @@
+program Project2;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var i, x, soucet, prumer: real;
+
+begin
+
+
+repeat
+soucet:=soucet+i;
+write('i='); read(i); while i>5 do begin writeln('zadej cislo 0-5'); write('i=');read(i) end;
+x:=x+1;
+until i=0;
+prumer:=soucet/x;
+writeln('soucet je ', soucet:0:0);
+writeln('pocet je ', x-1:0:0);
+writeln('prumer je ', prumer:0:2);
+  sleep(5000);
+  { TODO -oUser -cConsole Main : Insert code here }
+end.

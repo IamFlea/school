@@ -1,0 +1,35 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+  min, pmin, j, i, x: integer;
+  a: array[1..6] of integer = (42, 23, 16, 15, 8, 4);
+begin
+  i := 1;
+  j := 1;
+  while(j <= 6) do begin
+    min  := a[j];
+    pmin := j;
+    while(i <= 6) do begin
+      if(a[i] < min) then begin
+        min  := a[i];
+        pmin := i;
+      end;
+      i := i + 1;
+    end;
+    x       := a[j];
+    a[j]    := a[pmin];
+    a[pmin] := x;
+    j       := j + 1;
+    i       := i;
+  end;
+
+  for i:=1 to 6 do begin
+    write (a[i] ,' ');
+  end;
+  sleep(1000);
+end.

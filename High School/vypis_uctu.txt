@@ -1,0 +1,39 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+// zapiste vysi uctu z restaurace za nekolik dni
+// vypocitejte prùmernou vyši úètu a poèet dní
+// kdy jsme nenavstivili restauraci
+//////////
+//
+//
+//
+uses
+  SysUtils;
+
+var x, dny, soucet, pocet, n: integer; prumer: real;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+  soucet:=0; pocet:=0; prumer:=0; n:=0;
+  write('x = '); read(x);
+  while x<0 do begin
+  write('zadej novy x = '); read(x);
+  end;
+  while x>=0do begin
+    if x = 0 then begin
+        pocet := pocet +1;
+    end else begin
+      soucet:= x + soucet;
+      n:= n + 1;
+    end;  
+    write('x = '); read(x);
+  end;
+
+  prumer:= soucet/n;
+  writeln('Pocet ubehlych dnu je ', n+pocet);
+  writeln('Pocet navstivenych dnu je ', n);
+  writeln('Pocet nenavstivenych dnu je ', pocet);
+  writeln('Celkovy ucet je ', soucet);
+  writeln('Prumer vsech uctu je ', prumer:0:2);
+  sleep(5000);
+end.

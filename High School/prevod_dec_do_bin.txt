@@ -1,0 +1,34 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var bin, dec, x, y: integer;
+begin
+  write('Dec: ');
+  readln(dec);
+
+  {sqrt...}
+  x := 1;
+  while dec >= x do
+  begin
+    x := x*2;
+  end;
+  x := x DIV 2;
+
+
+  while x <> 0 do
+  begin
+    if dec >= x then begin
+      dec:= dec-x;
+      write(1);
+    end else begin
+      write(0);
+    end;
+    x:= x DIV 2;
+  end;
+
+  sleep(1000);
+end.

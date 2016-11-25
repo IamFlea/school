@@ -1,0 +1,56 @@
+program Project21;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var x, y, z, xback, yback, i, bool, error:integer;
+begin
+  writeln('           Najdi cifru y v cisle x               ');
+  writeln('-------------------------------------------------');
+  write('Cislo: ');read(x);
+  while(x >=100000000)do begin
+    writeln('Cislo je prilis velke, zadej nove cislo');
+    write('Nove cislo: ');read(x)
+  end;
+  xback:=x;
+
+  while(x<>0)do begin
+    i:=10;
+    bool:=0;
+    write('Cifra: ');read(y);
+    while((y <= 0) OR (y > 9)) do begin
+      writeln('Zadej cifru mezi 1-9');
+      writeln;writeln;write('Nova cifra: ');read(y);
+    end;
+    yback:=y;
+
+    while((xback*10)>i)do begin
+      z:= x MOD i;
+      if(z=y) then begin
+        bool:=1;
+        break;
+      end else begin
+        i:=i*10;
+        y:=y*10;
+        x:=x-z;
+      end;
+    end;
+
+    if(bool=1) then begin
+      writeln(xback,' obsahuje ', yback)
+    end else begin
+      writeln(xback,' neobsahuje ', yback);
+    end;
+
+
+    write('Cislo: ');read(x);
+    while(x >=100000000)do begin
+      writeln('Cislo je prilis velke, zadej nove cislo');
+      write('Nove cislo: ');read(x)
+    end;
+    xback:=x;
+  end;
+end.
+

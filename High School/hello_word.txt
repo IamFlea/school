@@ -1,0 +1,14 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+begin
+writeln('nazdar');
+writeln(2+1);
+
+sleep(5000);
+  { TODO -oUser -cConsole Main : Insert code here }
+  end.

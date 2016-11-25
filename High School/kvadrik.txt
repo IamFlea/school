@@ -1,0 +1,50 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var a, b, c, S, V: integer;
+var u1, u2, u3, ut: real;
+begin
+  { TODO -oUser -cConsole Main : Insert code here }
+
+writeln('Vypocet obsahu, objemu a uhlopricek kvadru.');
+writeln('Program ukoncite pomoci 0. Promenne nesmi byt zaporna cisla!');
+
+repeat
+  repeat
+    write('a=');
+    readln(a);
+  until (a >= 0);
+
+  repeat
+    write('b=');
+    readln(b);
+  until (b >= 0);
+
+  repeat
+    write('c=');
+    readln(c);
+  until (c >= 0);
+
+  S := 2*(a*b + a*c + b*c);
+  V := a*b*c;
+  u1 := sqr(a*a + b*b);
+  u2 := sqr(b*b + c*c);
+  u3 := sqr(a*a + c*c);
+  ut := sqr(a*a + b*b + c*c);
+
+  writeln;
+  writeln('S = ', S);
+  writeln('V = ', V);
+  writeln('u1 = ', u1);
+  writeln('u2 = ', u2);
+  writeln('u3 = ', u3);
+  writeln('ut = ', ut);
+  writeln;
+  writeln;
+
+until(a = 0) OR (b = 0) OR (c = 0);
+end.

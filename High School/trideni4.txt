@@ -1,0 +1,75 @@
+program Project2;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var min, pmin, max, pmax, j, i, x, n, m, rozsah:integer;
+    a:array[1..1000] of integer;
+begin
+  Randomize;
+  write('Pocet cisel: ');
+  read(m);
+  writeln;
+  while(m>=1000) do begin
+    write('Pocet cisel nesmi byt vetsi nez 1000');
+    writeln;
+    write('Pocet cisel: ');
+    read(m);
+    writeln;
+  end;
+
+  write('Zadej rozsah: ');
+  read(rozsah);
+  writeln;
+
+  i := 1;
+  for i:=1 to m do begin
+    a[i] := random(rozsah);
+    while(a[i] = 0) do begin
+      a[i] := random(rozsah);
+    end;
+  end;
+
+  for i:=1 to m do begin
+    write(a[i],' ');
+  end;
+  writeln;
+  writeln;
+  i := 1;
+  j := 1;
+  n := m;
+  while(j <= n) do begin
+    min  := a[j];
+    pmin := j;
+    max  := a[j];
+    pmin := j;
+    i    := j;
+    while(i <= n) do begin
+      if(a[i] < min) then begin
+        min  := a[i];
+        pmin := i;
+      end;
+      if(a[i] > max) then begin
+        max  := a[i];
+        pmax := i;
+      end;
+      i := i + 1;
+    end;
+    x       := a[j];
+    a[j]    := a[pmin];
+    a[pmin] := x;
+    x       := a[n];
+    a[n]    := a[pmax];
+    a[pmax] := x;
+    j       := j + 1;
+    n       := n - 1;
+    i       := i;
+  end;
+
+  for i:=1 to m do begin
+    write(a[i] ,' ');
+  end;
+  sleep(10000);
+end.
