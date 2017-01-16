@@ -1,0 +1,52 @@
+This folder contains really big mess, in czech folk terms brothel.
+Here are scripts which were used in the thesis and I doubt that some of them will be used!
+Except the script called circuit.py in which is a class for circuits in chromosome format. The script analyses them and gives us the information of the circuit.
+
+The filename describes what it does...
+adder_generator.py      -- Generates speccification of the adders
+adder_run.sh            -- Batch approximation of the adder
+benchmark_test.sh       -- Analysis of time spend in each function of CGP
+circuit.py              -- The best script, it analyses the soltuions of CGP
+getdata.py              -- Some other analysis script (an example how to not write comments)
+gimmeh_the_best_circuit.py -- selecting the best circuit
+get_best_adders.py      -- from N runs of approximations give us the best solution and it yields (for adders) 
+get_best_circuit.py     -- from N runs of approximations give us the best solution and it yields (for multipliers)
+kogge_stone.py          -- designs kogge stone adders
+mult_run.sh             -- Batch approximation for multiplier
+multiplier_generator.py -- generates the specification of the multipliers
+random_seeds_100        -- 100 random numbers used in this thesis for the run
+randomorg.sh            -- generates 100 random numbers
+remove_gate.py          -- remove the gate from multiplier
+remove_gate_adder.py    -- remove the gate from adder; has a bug!!
+test_fitness_sad.sh     -- batch run of SAD
+test_fitness_shd.sh     -- batch run of SHD
+test_fitness_wshd.sh    -- batch run of WSHD
+wallace_tree.py         -- design of the multiplier by Wallace tree
+check_nasobicky.py -- testing the multiplier
+check_scitack.py   -- testing the adder
+create_dotplots.py -- create dot plots 
+edges.py           -- batch run for edge detection
+make_graphs.py     -- plots the graphs
+etc.
+
+
+How to solve the problem with the mess:
+1. Find a good wife that can work with PC and who knows czech language.
+   $ wget woman
+   Some males needs to rewrite her:
+   $ vim woman.cpp
+   $ gcc woman.cpp -o woman
+
+2. Tell her to clean this folder
+   $ woman clean /src/
+
+3. For the correct functionality, woman has to be run with different commands than the run "clean". Here are the examples:
+   $ woman giveher < "<3"
+   $ woman giveher < ./roses
+   $ woman giveher < `myself /dev/cook dinner`
+   ...
+   However the list is not enumerable by Turing machine.
+
+4. I helped a woman by writing this file. :)
+
+5. My jokes suck.

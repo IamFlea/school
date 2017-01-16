@@ -1,0 +1,7 @@
+v0.7    Bitova negace funkcni. Training data v jednom poli.
+v0.6    JIT do byte kodu v postfixove notaci
+v0.5    JIT do byte kodu
+v0.4    Kompilace ze behu pomoci vestavene fce compile() (JIT)
+v0.3    Bez JIT
+v0.2    Naivni implementace
+v0.1    Bez evaluace.

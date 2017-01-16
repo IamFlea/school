@@ -1,0 +1,607 @@
+0:0000000000000000
+1:0000000000000000
+2:FFFFFFFF00000000
+3:FFFF0000FFFF0000
+4:FF00FF00FF00FF00
+5:F0F0F0F0F0F0F0F0
+6:CCCCCCCCCCCCCCCC
+7:AAAAAAAAAAAAAAAA
+8:E000C00080000000
+9:1FE03FC07F80FF00
+10:1E1E3C3C7878F0F0
+11:999933336666CCCC
+12:5555AAAA5555AAAA
+13:0000000000000000
+14:FFFFFFFFFFFFFFFF
+15:FFFFFFFF00000000
+16:FFFF0000FFFF0000
+17:FF00FF00FF00FF00
+18:F0F0F0F0F0F0F0F0
+19:CCCCCCCCCCCCCCCC
+20:AAAAAAAAAAAAAAAA
+21:FE00FC00F800F000
+22:01FE03FC07F80FF0
+23:E1E1C3C387870F0F
+24:999933336666CCCC
+25:5555AAAA5555AAAA
+26:FFFFFFFFFFFFFFFF
+27:0000000000000000
+28:FFFFFFFF00000000
+29:FFFF0000FFFF0000
+30:FF00FF00FF00FF00
+31:F0F0F0F0F0F0F0F0
+32:CCCCCCCCCCCCCCCC
+33:AAAAAAAAAAAAAAAA
+34:FFE0FFC0FF80FF00
+35:E01FC03F807F00FF
+36:1E1E3C3C7878F0F0
+37:999933336666CCCC
+38:5555AAAA5555AAAA
+39:FFFFFFFFFFFFFFFF
+40:FFFFFFFFFFFFFFFF
+41:FFFFFFFF00000000
+42:FFFF0000FFFF0000
+43:FF00FF00FF00FF00
+44:F0F0F0F0F0F0F0F0
+45:CCCCCCCCCCCCCCCC
+46:AAAAAAAAAAAAAAAA
+47:FFFEFFFCFFF8FFF0
+48:FE01FC03F807F00F
+49:E1E1C3C387870F0F
+50:999933336666CCCC
+51:5555AAAA5555AAAA
+Training data:
+   file:data/adder4_4.txt, items:52, inputs:8, outputs:5
+Inverted reference output:
+0:5555AAAA5555AAAA [0]
+1:CCCC999933336666 [0]
+2:C3C387870F0F1E1E [0]
+3:C03F807F00FF01FE [0]
+4:3FFF7FFFFFFFFFFE [0]
+5:FFFFFFFFFFFFFFFE [0]
+0:AAAAAAAAAAAAAAAA [1]
+1:5555AAAA5555AAAA [1]
+2:CCCC999933336666 [1]
+3:3C3C7878F0F0E1E1 [1]
+4:FC03F807F00FE01F [1]
+5:03FF07FF0FFF1FFF [1]
+0:CCCCCCCCCCCCCCCC [2]
+1:AAAAAAAAAAAAAAAA [2]
+2:5555AAAA5555AAAA [2]
+3:CCCC999933336666 [2]
+4:C3C387870F0F1E1E [2]
+5:3FC07F80FF00FE01 [2]
+0:F0F0F0F0F0F0F0F0 [3]
+1:CCCCCCCCCCCCCCCC [3]
+2:AAAAAAAAAAAAAAAA [3]
+3:5555AAAA5555AAAA [3]
+4:CCCC999933336666 [3]
+5:3C3C7878F0F0E1E1 [3]
+Obtained output
+0 : 0000000000000000 (from 25)
+1 : 00FF00FF00FF00FF (from 19)
+2 : FFFFFFFFFFFFFFFF (from 39)
+3 : 0000000000000000 (from 1)
+4 : 0000000000000000 (from 40)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: 00FF00FF00FF00FF B1: CCCC999933336666
+C1: 00CC009900330066 S1: CC33996633CC6699
+
+A2: FFFFFFFFFFFFFFFF B2: C3C387870F0F1E1E
+C2: C3CF879F0F3F1E7E S2: 3CF078E1F0C3E187
+
+A3: 0000000000000000 B3: C03F807F00FF01FE
+C3: C00F801F003F007E S3: 03F007E00FC01F80
+
+A4: 0000000000000000 B4: 3FFF7FFFFFFFFFFE
+C4: 000F001F003F007E S4: FFF0FFE0FFC0FF80
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFE
+C5: 0000000000000000 S5: FFF0FFE0FFC0FF80
+
+Diff: 360 [0]
+Obtained output
+0 : 0000000000000000 (from 16)
+1 : FF00FF00FF00FF00 (from 12)
+2 : 0000000000000000 (from 31)
+3 : 00F000F000F000F0 (from 30)
+4 : F0F0F0F0F0F0F0F0 (from 29)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: FF00FF00FF00FF00 B1: CCCC999933336666
+C1: CC00990033006600 S1: 33CC6699CC339966
+
+A2: 0000000000000000 B2: C3C387870F0F1E1E
+C2: C000810003000600 S2: 0FC31E873C0F781E
+
+A3: 00F000F000F000F0 B3: C03F807F00FF01FE
+C3: C030807000F000F0 S3: 00CF018F030F070E
+
+A4: F0F0F0F0F0F0F0F0 B4: 3FFF7FFFFFFFFFFE
+C4: F0F0F0F0F0F0F0F0 S4: 0F3F0F7F0FFF0FFE
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFE
+C5: 0000000000000000 S5: 0F0F0F0F0F0F0F0E
+
+Diff: 512 [0]
+Obtained output
+0 : 0000000000000000 (from 10)
+1 : F0F0F0F0F0F0F0F0 (from 5)
+2 : 0000000000000000 (from 34)
+3 : 0000000000000000 (from 43)
+4 : 0303030303030303 (from 8)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: F0F0F0F0F0F0F0F0 B1: CCCC999933336666
+C1: C0C0909030306060 S1: 3C3C6969C3C39696
+
+A2: 0000000000000000 B2: C3C387870F0F1E1E
+C2: C0C0808000000000 S2: 030317173F3F7E7E
+
+A3: 0000000000000000 B3: C03F807F00FF01FE
+C3: C000800000000000 S3: 00FF00FF00FF01FE
+
+A4: 0303030303030303 B4: 3FFF7FFFFFFFFFFE
+C4: 0303030303030302 S4: FCFCFCFCFCFCFCFD
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFE
+C5: 0000000000000000 S5: FCFCFCFCFCFCFCFC
+
+Diff: 576 [0]
+Obtained output
+0 : 0000000000000000 (from 25)
+1 : 00FF00FF00FF00FF (from 19)
+2 : FFFFFFFFFFFFFFFF (from 39)
+3 : FFFFFFFFFFFFFFFF (from 1)
+4 : 0000000000000000 (from 40)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: 00FF00FF00FF00FF B1: CCCC999933336666
+C1: 00CC009900330066 S1: CC33996633CC6699
+
+A2: FFFFFFFFFFFFFFFF B2: 3C3C7878F0F0E1E1
+C2: 3CFC78F9F0F3E1E7 S2: C30F871E0F3C1E78
+
+A3: FFFFFFFFFFFFFFFF B3: FC03F807F00FE01F
+C3: FCFFF8FFF0FFE1FF S3: 3F007F01FF03FE07
+
+A4: 0000000000000000 B4: 03FF07FF0FFF1FFF
+C4: 00FF00FF00FF01FF S4: FF00FF00FF00FE00
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FF00FF00FF00FE00
+
+Diff: 320 [1]
+Obtained output
+0 : 0000000000000000 (from 16)
+1 : FF00FF00FF00FF00 (from 12)
+2 : 0000000000000000 (from 31)
+3 : 00F000F000F000F0 (from 30)
+4 : F0F0F0F0F0F0F0F0 (from 29)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: FF00FF00FF00FF00 B1: CCCC999933336666
+C1: CC00990033006600 S1: 33CC6699CC339966
+
+A2: 0000000000000000 B2: 3C3C7878F0F0E1E1
+C2: 0C00180030006000 S2: F03CE178C3F087E1
+
+A3: 00F000F000F000F0 B3: FC03F807F00FE01F
+C3: 0C00180030006010 S3: F0F3E0F7C0FF80EF
+
+A4: F0F0F0F0F0F0F0F0 B4: 03FF07FF0FFF1FFF
+C4: 00F010F030F070F0 S4: FF0FEF0FCF0F8F1F
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FF0FEF0FCF0F8F0F
+
+Diff: 552 [1]
+Obtained output
+0 : FFFFFFFFFFFFFFFF (from 10)
+1 : F0F0F0F0F0F0F0F0 (from 5)
+2 : 00000000FFFFFFFF (from 34)
+3 : FFFFFFFFFFFFFFFF (from 43)
+4 : 0303030303030303 (from 8)
+A0: AAAA5555AAAA5555 B0: 5555AAAA5555AAAA
+C0: 5555AAAA5555AAAA S0: AAAA5555AAAA5555
+
+A1: F0F0F0F0F0F0F0F0 B1: CCCC999933336666
+C1: D4D4B8B87171E2E2 S1: 6969C3C396963C3C
+
+A2: 00000000FFFFFFFF B2: 3C3C7878F0F0E1E1
+C2: 14143838F1F1E3E3 S2: E8E8C0C07E7EFCFC
+
+A3: FFFFFFFFFFFFFFFF B3: FC03F807F00FE01F
+C3: FC17F83FF1FFE3FF S3: 17E83FC0FE01FC03
+
+A4: 0303030303030303 B4: 03FF07FF0FFF1FFF
+C4: 0317033F03FF03FF S4: FCEBFCC3FD03FF03
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FCE8FCC0FC00FC00
+
+Diff: 484 [1]
+Obtained output
+0 : 0000000000000000 (from 25)
+1 : 00FF00FF00FF00FF (from 19)
+2 : FFFFFFFFFFFFFFFF (from 39)
+3 : 0000000000000000 (from 1)
+4 : 0000000000000000 (from 40)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: 00FF00FF00FF00FF B1: CCCC999933336666
+C1: 00CC009900330066 S1: CC33996633CC6699
+
+A2: FFFFFFFFFFFFFFFF B2: C3C387870F0F1E1E
+C2: C3CF879F0F3F1E7E S2: 3CF078E1F0C3E187
+
+A3: 0000000000000000 B3: 3FC07F80FF00FE01
+C3: 03C007800F001E00 S3: FC0FF81FF03FE07F
+
+A4: 0000000000000000 B4: 003F007F00FF01FF
+C4: 0000000000000000 S4: 03FF07FF0FFF1FFF
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FFFFFFFFFFFFFFFF
+
+Diff: 768 [2]
+Obtained output
+0 : 0000000000000000 (from 16)
+1 : FF00FF00FF00FF00 (from 12)
+2 : 0000000000000000 (from 31)
+3 : 00F000F000F000F0 (from 30)
+4 : F0F0F0F0F0F0F0F0 (from 29)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: FF00FF00FF00FF00 B1: CCCC999933336666
+C1: CC00990033006600 S1: 33CC6699CC339966
+
+A2: 0000000000000000 B2: C3C387870F0F1E1E
+C2: C000810003000600 S2: 0FC31E873C0F781E
+
+A3: 00F000F000F000F0 B3: 3FC07F80FF00FE01
+C3: 00C0018003000600 S3: FF30FE70FCF0F8F1
+
+A4: F0F0F0F0F0F0F0F0 B4: 003F007F00FF01FF
+C4: 00F000F000F000F0 S4: F00FF10FF30FF70F
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FF0FFF0FFF0FFF0F
+
+Diff: 672 [2]
+Obtained output
+0 : 0000000000000000 (from 10)
+1 : F0F0F0F0F0F0F0F0 (from 5)
+2 : 0000000000000000 (from 34)
+3 : 2222222222222222 (from 43)
+4 : 0303030303030303 (from 8)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: F0F0F0F0F0F0F0F0 B1: CCCC999933336666
+C1: C0C0909030306060 S1: 3C3C6969C3C39696
+
+A2: 0000000000000000 B2: C3C387870F0F1E1E
+C2: C0C0808000000000 S2: 030317173F3F7E7E
+
+A3: 2222222222222222 B3: 3FC07F80FF00FE01
+C3: 22C0228022002200 S3: DD22DD22DD22DC23
+
+A4: 0303030303030303 B4: 003F007F00FF01FF
+C4: 0203020302030303 S4: 21FC21FC21FC20FC
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FDFCFDFCFDFCFCFC
+
+Diff: 844 [2]
+Obtained output
+0 : 0000000000000000 (from 25)
+1 : 00FF00FF00FF00FF (from 19)
+2 : 0000000000000000 (from 39)
+3 : FFFFFFFFFFFFFFFF (from 1)
+4 : 00FF00FF00FF00FF (from 40)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: 00FF00FF00FF00FF B1: CCCC999933336666
+C1: 00CC009900330066 S1: CC33996633CC6699
+
+A2: 0000000000000000 B2: 3C3C7878F0F0E1E1
+C2: 000C001800300060 S2: 3CF078E1F0C3E187
+
+A3: FFFFFFFFFFFFFFFF B3: 03FC07F80FF01FE0
+C3: 03FC07F80FF01FE0 S3: FC0FF81FF03FE07F
+
+A4: 00FF00FF00FF00FF B4: 00030007000F001F
+C4: 00FF00FF00FF00FF S4: 030007000F001F00
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FF00FF00FF00FF00
+
+Diff: 832 [3]
+Obtained output
+0 : 0000000000000000 (from 16)
+1 : FF00FF00FF00FF00 (from 12)
+2 : 0000000000000000 (from 31)
+3 : 00F000F000F000F0 (from 30)
+4 : F0F0F0F0F0F0F0F0 (from 29)
+A0: 5555AAAA5555AAAA B0: 5555AAAA5555AAAA
+C0: 0000000000000000 S0: 5555AAAA5555AAAA
+
+A1: FF00FF00FF00FF00 B1: CCCC999933336666
+C1: CC00990033006600 S1: 33CC6699CC339966
+
+A2: 0000000000000000 B2: 3C3C7878F0F0E1E1
+C2: 0C00180030006000 S2: F03CE178C3F087E1
+
+A3: 00F000F000F000F0 B3: 03FC07F80FF01FE0
+C3: 00F000F000F000E0 S3: 0F0C1F083F007F10
+
+A4: F0F0F0F0F0F0F0F0 B4: 00030007000F001F
+C4: 00F000F000F000F0 S4: F003F007F00FF00F
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FF0FFF0FFF0FFF0F
+
+Diff: 800 [3]
+Obtained output
+0 : FFFFFFFFFFFFFFFF (from 10)
+1 : F0F0F0F0F0F0F0F0 (from 5)
+2 : 0000000000000000 (from 34)
+3 : 0000000000000000 (from 43)
+4 : 0303030303030303 (from 8)
+A0: AAAA5555AAAA5555 B0: 5555AAAA5555AAAA
+C0: 5555AAAA5555AAAA S0: AAAA5555AAAA5555
+
+A1: F0F0F0F0F0F0F0F0 B1: CCCC999933336666
+C1: D4D4B8B87171E2E2 S1: 6969C3C396963C3C
+
+A2: 0000000000000000 B2: 3C3C7878F0F0E1E1
+C2: 141438387070E0E0 S2: E8E8C0C081810303
+
+A3: 0000000000000000 B3: 03FC07F80FF01FE0
+C3: 00140038007000E0 S3: 17E83FC07F80FF00
+
+A4: 0303030303030303 B4: 00030007000F001F
+C4: 0003000300030003 S4: 0314033C037C03FC
+
+A5: 0000000000000000 B5: FFFFFFFFFFFFFFFF
+C5: 0000000000000000 S5: FFFCFFFCFFFCFFFC
+
+Diff: 1008 [3]
+0: 2280	00000000000008E8 
+1: 2536	00000000000009E8 
+2: 2912	0000000000000B60 
+CGP parameters:
+   l-back=40, rows=1, cols=40, functions=8
+   popsize=3, mutgenes=1, generations=0
+   evalunused=false
+Evolutionary run:
+   initial fitness=2280, best fitness=7936
+Best fitness: 2280/7936
+Best individual: {8,5, 40,1, 2,1,40}([8]0,-1,1)([9]3,-1,5)([10]7,7,4)([11]-2,10,7)([12]11,0,1)([13]8,-1,0)([14]-2,10,5)([15]5,13,5)([16]13,10,1)([17]3,6,6)([18]15,6,5)([19]4,12,5)([20]13,0,6)([21]0,2,1)([22]9,-2,1)([23]2,22,4)([24]12,14,0)([25]14,13,6)([26]24,12,6)([27]9,5,2)([28]14,3,2)([29]9,10,4)([30]-2,2,4)([31]28,1,1)([32]13,14,2)([33]0,12,1)([34]30,11,1)([35]32,30,4)([36]35,9,3)([37]34,5,5)([38]33,17,0)([39]26,29,5)([40]29,18,1)([41]18,36,2)([42]13,25,6)([43]25,33,6)([44]41,41,3)([45]32,6,2)([46]-1,5,7)([47]34,20,4)(40,1,39,19,25)
+Duration: 0.003333 Evaluations per sec: 0.000000
+dipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A4961: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403DBA: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A4961: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E5A: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A4968: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E5A: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9408: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E5A: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9133: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E5A: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A91C3: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E5A: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A4961: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E87: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A4968: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E87: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9408: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E87: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9133: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E87: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A91C3: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403E87: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A4961: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x403EE9: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9A61: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A49BB: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A49C5: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9408: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9133: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A91C3: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A4961: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A4968: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x404171: calc_fitness(int) (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837==    by 0x403218: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x403245: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9A61: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A49BB: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A49C5: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9408: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9133: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A91C3: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4032E3: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9A61: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Use of uninitialised value of size 8
+==19837==    at 0x56A49BB: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A49C5: _itoa_word (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56A9397: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9408: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A9133: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== Conditional jump or move depends on uninitialised value(s)
+==19837==    at 0x56A91C3: vfprintf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x56AFA38: printf (in /usr/lib/libc-2.20.so)
+==19837==    by 0x4035A5: main (in /data/dipdipdipdipdip/src/cgp_sad/cgp_native)
+==19837== 
+==19837== 
+==19837== HEAP SUMMARY:
+==19837==     in use at exit: 30,882 bytes in 95 blocks
+==19837==   total heap usage: 116 allocs, 21 frees, 33,254 bytes allocated
+==19837== 
+==19837== LEAK SUMMARY:
+==19837==    definitely lost: 416 bytes in 1 blocks
+==19837==    indirectly lost: 0 bytes in 0 blocks
+==19837==      possibly lost: 20,134 bytes in 5 blocks
+==19837==    still reachable: 10,332 bytes in 89 blocks
+==19837==         suppressed: 0 bytes in 0 blocks
+==19837== Rerun with --leak-check=full to see details of leaked memory
+==19837== 
+==19837== For counts of detected and suppressed errors, rerun with: -v
+==19837== Use --track-origins=yes to see where uninitialised values come from
+==19837== ERROR SUMMARY: 3042 errors from 59 contexts (suppressed: 0 from 0)

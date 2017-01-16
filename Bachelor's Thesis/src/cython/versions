@@ -1,0 +1,5 @@
+v0.1 - stupid implementation in python, just transleted in C 
+v0.2 - used static types from cython
+v0.3 - used function array
+v0.4 - used JIT -- not working correctly...
+
