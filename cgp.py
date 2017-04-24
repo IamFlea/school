@@ -25,7 +25,7 @@ DEFAULT_LEVEL_BACK = 5 # If the value is equal to number of columns then
 
 # The operation set. 
 # List of tuples(`str` name, `int` arity (inputs), `function` operation). 
-DEFAULT_OPERATION_SET = set([("BUF",  1, lambda *arg: arg[0]), # Note maximal arity is two, thus it has two parameters. 
+DEFAULT_OPERATION_SET = set([("BUF",  1, lambda *arg: arg[0]),
                              ("NOT",  1, lambda *arg: ~arg[0]), 
                              ("AND",  2, lambda *arg: ~(arg[0] & arg[1])), 
                              ("OR",   2, lambda *arg: ~(arg[0] | arg[1])), 
