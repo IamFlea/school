@@ -27,11 +27,11 @@ DEFAULT_LEVEL_BACK = 5 # If the value is equal to number of columns then
 # List of tuples(`str` name, `int` arity (inputs), `function` operation). 
 DEFAULT_OPERATION_SET = set([("BUF",  1, lambda *arg: arg[0]),
                              ("NOT",  1, lambda *arg: ~arg[0]), 
-                             ("AND",  2, lambda *arg: ~(arg[0] & arg[1])), 
-                             ("OR",   2, lambda *arg: ~(arg[0] | arg[1])), 
-                             ("XOR",  2, lambda *arg: arg[0] & arg[1]), 
-                             ("NAND", 2, lambda *arg: arg[0] | arg[1]),
-                             ("NOR",  2, lambda *arg: arg[0] ^ arg[1]), 
+                             ("NAND", 2, lambda *arg: ~(arg[0] & arg[1])), 
+                             ("NOR",  2, lambda *arg: ~(arg[0] | arg[1])), 
+                             ("AND",  2, lambda *arg: arg[0] & arg[1]), 
+                             ("OR",   2, lambda *arg: arg[0] | arg[1]),
+                             ("XOR",  2, lambda *arg: arg[0] ^ arg[1]), 
                              ("XNOR", 2, lambda *arg: ~(arg[0] ^ arg[1])),
                             ])
 
